@@ -173,6 +173,6 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
-    display: inline-block;
+    // display: inline-block;
   }
 </style>

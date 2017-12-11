@@ -1,18 +1,37 @@
 <template>
-  <div>
+  <div class="slider-wrapper">
     <img :src="img" style="width: 100%;">
+    <div class="content-wrapper">
+      <p class="i-c-title">{{title}}</p>
+      <div class="i-c-content-wrapper">
+        <p class="i-c-content">{{content}}</p>
+        <img src="/static/img/index/fb.png" style="vertical-align: middle; margin-left: 18px;">
+      </div>
+      <a class="i-c-d-button i-c-g-play"></a>
+      <a class="i-c-d-button i-c-a-store"></a>
+    </div>
   </div>
 </template>
 
 <script>
-  import {Slider, SliderItem} from '../module/image-slider'
-
   export default {
-    name: 'index-body',
-    components: {Slider, SliderItem},
+    name: 'index-slider',
+    props: {
+      img: {
+        type: String,
+        default: '',
+      },
+      title: {
+        type: String,
+        default: '',
+      },
+      content: {
+        type: String,
+        default: '',
+      }
+    },
     data () {
       return {
-        imageList: ['/static/img/index-back-1.png', '/static/img/index-back-2.png', '/static/img/index-back-3.png'],
       }
     },
 
@@ -28,7 +47,66 @@
 </script>
 
 <style lang="scss" scoped>
-  .slider {
+  .slider-wrapper {
+    position: relative;
 
+    .content-wrapper {
+      height: 300px;
+      width: 800px;
+      position: absolute; left: 0; top: 0; right: 0; bottom: 0;
+      margin: auto;
+
+      .i-c-title {
+        font-size:  51px;
+        font-family: 'Avenir Black';
+        color: #fff;
+        margin: 0px auto 26px auto;
+      }
+
+      .i-c-content-wrapper {
+        margin-bottom: 50px;
+        height: 35px;
+        line-height: 35px;
+
+        .i-c-content {
+          font-size: 20px;
+          font-family: 'Avenir Book';
+          color: #fff;
+          margin: 0;
+          display: inline-block;
+        }
+      }
+
+      .i-c-d-button {
+        width: 170px;
+        height: 55px;
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      .i-c-g-play {
+        background: url(/static/img/index/google-play.png) no-repeat;
+
+        &:hover {
+          background: url(/static/img/index/google-play-hover.png) no-repeat;
+        }
+
+        &:active {
+          background: url(/static/img/index/google-play-active.png) no-repeat;
+        }
+      }
+
+      .i-c-a-store {
+        background: url(/static/img/index/app-store.png) no-repeat;
+
+        &:hover {
+          background: url(/static/img/index/app-store-hover.png) no-repeat;
+        }
+
+        &:active {
+          background: url(/static/img/index/app-store-active.png) no-repeat;
+        }
+      }
+    }
   }
 </style>
