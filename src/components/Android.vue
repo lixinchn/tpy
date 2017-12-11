@@ -1,22 +1,23 @@
 <template>
   <div class="index">
-    <common-header></common-header>
-    <index-body></index-body>
-    <common-tail></common-tail>
+    <common-header :width="maxWidth"></common-header>
+    <android-body :width="maxWidth"></android-body>
+    <common-tail :width="maxWidth"></common-tail>
   </div>
 </template>
 
 <script>
   import CommonHeader from './common/Header'
-  import IndexBody from './index/IndexBody'
+  import AndroidBody from './android/AndroidBody'
   import CommonTail from './common/Tail'
 
 
   export default {
-    name: 'index',
-    components: {CommonHeader, IndexBody, CommonTail},
+    name: 'android',
+    components: {CommonHeader, AndroidBody, CommonTail},
     data () {
       return {
+        maxWidth: '1024px',
       }
     },
 

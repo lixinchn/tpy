@@ -1,0 +1,88 @@
+<template>
+  <div class="effi-wrapper" :style="{height: pageHeight}">
+    <div class="effi-c-wrapper" :style="{width: width}">
+      <div class="effi-desc">
+        <p class="title">EXPRESSION</p>
+        <desc-image-content v-for="(icon, index) in iconList" :imageSrc="icon" :desc="descList[index]" :key="index">
+        </desc-image-content>
+      </div>
+      <img class="effi-show" src="/static/img/android/efficiency.png">
+    </div>
+    <div class="bg-component"></div>
+  </div>
+</template>
+
+<script>
+  import DescImageContent from './DescImageContent'
+  export default {
+    name: 'PageEfficiency',
+    components: {DescImageContent},
+    props: {
+      width: {type: String},
+      pageHeight: {type: String},
+    },
+    data () {
+      return {
+        iconList: ['/static/img/android/effi-icon1.png', '/static/img/android/effi-icon2.png'],
+        descList: ['Convenient Emoji Prediction, Based on What You\'ve Just Typed',
+                   'Simply swipe-to-type with Typany'],
+      }
+    },
+
+    methods: {
+    },
+
+    created() {
+    },
+
+    computed: {
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+  .effi-wrapper {
+    width: 100%;
+    background: url(/static/img/android/bg4.png) no-repeat;
+    position: relative;
+
+    .effi-c-wrapper {
+      z-index: 10;
+      height: 100%;
+      text-align: right;
+      margin: 0 auto;
+      position: relative;
+
+      .effi-show {
+        width: 536px;
+        height: 787px;
+        margin: 54px 130px 0 0;
+        display: inline-block;
+        position: relative;
+        left: 150px;
+      }
+
+      .effi-desc {
+        position: absolute;
+        top: 231px;
+        left: 20px;
+        width: 500px;
+        .title {
+          font-family: 'Arial MT Regular';
+          font-size: 42px;
+          color: #fff;
+          margin: 0 0 42px 0;
+          text-align: center;
+        }
+      }
+    }
+    .bg-component {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(/static/img/android/4.png) no-repeat;
+    }
+  }
+</style>
