@@ -1,12 +1,12 @@
 <template>
-  <div class="exp-wrapper" :style="{height: pageHeight}">
-    <div class="exp-c-wrapper" :style="{width: width}">
-      <div class="exp-desc">
-        <p class="title">EXPRESSION</p>
+  <div class="per-wrapper" :style="{height: pageHeight}">
+    <div class="per-c-wrapper" :style="{width: width}">
+      <img class="per-show" src="/static/img/ios/personalization.png">
+      <div class="per-desc">
+        <p class="title">PERSONALIZATION</p>
         <desc-image-content v-for="(icon, index) in iconList" :imageSrc="icon" :desc="descList[index]" :key="index" :color="fontColor">
         </desc-image-content>
       </div>
-      <img class="exp-show" src="/static/img/android/expression.png">
     </div>
     <div class="bg-component"></div>
   </div>
@@ -15,7 +15,7 @@
 <script>
   import DescImageContent from '../common/DescImageContent'
   export default {
-    name: 'PageExpression',
+    name: 'PagePersonalization',
     components: {DescImageContent},
     props: {
       width: {type: String},
@@ -23,9 +23,9 @@
     },
     data () {
       return {
-        iconList: ['/static/img/android/exp-icon1.png', '/static/img/android/exp-icon2.png'],
-        descList: ['Discover the world of pop culture - memes, TV, Movies, Music and more',
-                   'Create Your Own Emoji with Build-in Emoji Maker'],
+        iconList: ['/static/img/ios/per-icon1.png', '/static/img/ios/per-icon2.png'],
+        descList: ['DIY Your Own Keyboard with the Favorite Photo, Wallpaper',
+                   'A Variety of Fine Collected Themes, Be Clarity and Stylish'],
         fontColor: '#6b6b6b',
       }
     },
@@ -42,29 +42,28 @@
 </script>
 
 <style lang="scss" scoped>
-  .exp-wrapper {
+  .per-wrapper {
     width: 100%;
     position: relative;
 
-    .exp-c-wrapper {
+    .per-c-wrapper {
       z-index: 10;
       height: 100%;
-      text-align: right;
+      text-align: left;
       margin: 0 auto;
       position: relative;
 
-      .exp-show {
-        width: 666px;
-        height: 869px;
+      .per-show {
+        width: 568px;
+        height: 696px;
+        margin: 30px 105px 0px 25px;
         display: inline-block;
-        position: relative;
-        left: 150px;
       }
 
-      .exp-desc {
+      .per-desc {
         position: absolute;
-        top: 231px;
-        left: 20px;
+        top: 160px;
+        left: 590px;
         width: 500px;
         .title {
           font-family: 'Arial MT Regular';
@@ -81,7 +80,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url(/static/img/android/2.png) no-repeat;
+      background: url(/static/img/ios/2.png) no-repeat;
     }
   }
 </style>

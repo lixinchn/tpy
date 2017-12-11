@@ -2,11 +2,12 @@
   <div class="effi-wrapper" :style="{height: pageHeight}">
     <div class="effi-c-wrapper" :style="{width: width}">
       <div class="effi-desc">
-        <p class="title">EFFICIENCY</p>
+        <p class="title">INNOVATION</p>
         <desc-image-content v-for="(icon, index) in iconList" :imageSrc="icon" :desc="descList[index]" :key="index">
         </desc-image-content>
+        <a href="#" class="effi-btn"></a>
       </div>
-      <img class="effi-show" src="/static/img/android/efficiency.png">
+      <img class="effi-show" src="/static/img/ios/left-hand.png">
     </div>
     <div class="bg-component"></div>
   </div>
@@ -15,7 +16,7 @@
 <script>
   import DescImageContent from '../common/DescImageContent'
   export default {
-    name: 'PageEfficiency',
+    name: 'PageInnovation',
     components: {DescImageContent},
     props: {
       width: {type: String},
@@ -23,9 +24,10 @@
     },
     data () {
       return {
-        iconList: ['/static/img/android/effi-icon1.png', '/static/img/android/effi-icon2.png'],
-        descList: ['Convenient Emoji Prediction, Based on What You\'ve Just Typed',
-                   'Simply swipe-to-type with Typany'],
+        iconList: ['/static/img/ios/inno-icon1.png', '/static/img/ios/inno-icon2.png', '/static/img/ios/inno-icon3.png'],
+        descList: ['First iOS Keyboard Designed for Left-Handed User',
+                   'Smart Saver for Password to Save Time and Reduce Frustration',
+                   'Revolutionary Clipboard to Make Typing Faster'],
       }
     },
 
@@ -43,7 +45,7 @@
 <style lang="scss" scoped>
   .effi-wrapper {
     width: 100%;
-    background: url(/static/img/android/bg4.png) no-repeat;
+    background: url(/static/img/ios/bg1.png) no-repeat;
     position: relative;
 
     .effi-c-wrapper {
@@ -54,9 +56,9 @@
       position: relative;
 
       .effi-show {
-        width: 536px;
-        height: 787px;
-        margin: 54px 130px 0 0;
+        width: 615px;
+        height: 881px;
+        margin: 0 30px 0 0;
         display: inline-block;
         position: relative;
         left: 150px;
@@ -64,7 +66,7 @@
 
       .effi-desc {
         position: absolute;
-        top: 231px;
+        top: 131px;
         left: 20px;
         width: 500px;
         .title {
@@ -74,6 +76,20 @@
           margin: 0 0 42px 0;
           text-align: center;
         }
+
+        .effi-btn {
+          display: block;
+          margin: 38px auto 0 auto;
+          width: 258px;
+          height: 75px;
+          background: url(/static/img/ios/ios-btn.png) no-repeat;
+          &:hover {
+            background: url(/static/img/ios/ios-btn-hover.png);
+          }
+          &:active {
+            background: url(/static/img/ios/ios-btn-active.png);
+          }
+        }
       }
     }
     .bg-component {
@@ -82,7 +98,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url(/static/img/android/4.png) no-repeat;
+      background: url(/static/img/ios/1.png) no-repeat;
     }
   }
 </style>

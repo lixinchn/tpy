@@ -1,11 +1,10 @@
 <template>
-  <div class="per-wrapper" :style="{height: pageHeight}">
-    <div class="per-c-wrapper" :style="{width: width}">
-      <img class="per-show" src="/static/img/android/personalization.png">
-      <div class="per-desc">
-        <p class="title">PERSONALIZATION</p>
-        <desc-image-content v-for="(icon, index) in iconList" :imageSrc="icon" :desc="descList[index]" :key="index" :color="fontColor">
-        </desc-image-content>
+  <div class="ai-wrapper" :style="{height: pageHeight}">
+    <div class="ai-c-wrapper" :style="{width: width}">
+      <img class="ai-show" src="/static/img/ios/ai.png">
+      <div class="ai-desc">
+        <p class="title">A.I TYPING</p>
+        <desc-image-content v-for="(icon, index) in iconList" :imageSrc="icon" :desc="descList[index]" :key="index"></desc-image-content>
       </div>
     </div>
     <div class="bg-component"></div>
@@ -15,7 +14,7 @@
 <script>
   import DescImageContent from '../common/DescImageContent'
   export default {
-    name: 'PagePersonalization',
+    name: 'PageAI',
     components: {DescImageContent},
     props: {
       width: {type: String},
@@ -23,10 +22,9 @@
     },
     data () {
       return {
-        iconList: ['/static/img/android/per-icon1.png', '/static/img/android/per-icon2.png'],
-        descList: ['DIY Your Own Keyboard with the Favorite Photo, Wallpaper',
-                   'Thousands of Colorful Themes to be Chose'],
-        fontColor: '#6b6b6b',
+        iconList: ['/static/img/ios/ai-icon1.png', '/static/img/ios/ai-icon2.png'],
+        descList: ['Intelligent AutoCorrect and Prediction',
+                   'Intelligent Word-Learning'],
       }
     },
 
@@ -42,33 +40,34 @@
 </script>
 
 <style lang="scss" scoped>
-  .per-wrapper {
+  .ai-wrapper {
     width: 100%;
+    background: url(/static/img/ios/bg2.png) no-repeat;
     position: relative;
 
-    .per-c-wrapper {
+    .ai-c-wrapper {
       z-index: 10;
       height: 100%;
       text-align: left;
       margin: 0 auto;
       position: relative;
 
-      .per-show {
-        width: 542px;
-        height: 799px;
+      .ai-show {
+        width: 546px;
+        height: 774px;
         margin: 0px 105px 0px 45px;
         display: inline-block;
       }
 
-      .per-desc {
+      .ai-desc {
         position: absolute;
-        top: 160px;
-        left: 590px;
+        top: 181px;
+        left: 605px;
         width: 500px;
         .title {
           font-family: 'Arial MT Regular';
           font-size: 42px;
-          color: #6b6b6b;
+          color: #fff;
           margin: 0 0 42px 0;
           text-align: center;
         }
@@ -80,7 +79,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url(/static/img/android/3.png) no-repeat;
+      background: url(/static/img/ios/4.png) no-repeat;
     }
   }
 </style>

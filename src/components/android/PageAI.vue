@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import DescImageContent from './DescImageContent'
+  import DescImageContent from '../common/DescImageContent'
   export default {
     name: 'PageAI',
     components: {DescImageContent},

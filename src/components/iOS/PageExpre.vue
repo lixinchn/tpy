@@ -6,7 +6,7 @@
         <desc-image-content v-for="(icon, index) in iconList" :imageSrc="icon" :desc="descList[index]" :key="index" :color="fontColor">
         </desc-image-content>
       </div>
-      <img class="exp-show" src="/static/img/android/expression.png">
+      <img class="exp-show" src="/static/img/ios/expression.png">
     </div>
     <div class="bg-component"></div>
   </div>
@@ -23,7 +23,7 @@
     },
     data () {
       return {
-        iconList: ['/static/img/android/exp-icon1.png', '/static/img/android/exp-icon2.png'],
+        iconList: ['/static/img/ios/exp-icon1.png', '/static/img/ios/exp-icon2.png'],
         descList: ['Discover the world of pop culture - memes, TV, Movies, Music and more',
                    'Create Your Own Emoji with Build-in Emoji Maker'],
         fontColor: '#6b6b6b',
@@ -81,7 +81,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url(/static/img/android/2.png) no-repeat;
+      background: url(/static/img/ios/3.png) no-repeat;
     }
   }
 </style>
