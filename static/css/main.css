@@ -1,0 +1,15 @@
+/* vertcal middle helper */
+.v-m-helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.v-m-content {
+  vertical-align: middle;
+}
+
+.link {
+  font: 16px "Avenir Book";
+  text-decoration: none;
+}
