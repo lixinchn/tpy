@@ -17,7 +17,7 @@
     components: {CommonHeader, IOSBody, CommonTail},
     data () {
       return {
-        maxWidth: '1024px',
+        maxWidth: '1080px',
       }
     },
 
