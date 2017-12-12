@@ -1,23 +1,27 @@
 <template>
   <div class="b-c-wrapper" :style="{width: width}">
-    <p class="b-c-title">LEAVE A REPLY</p>
-    <div class="b-c-split"></div>
-    <p style="margin: 32px 0 30px 0;">Your email address will not be published. Required fields are marked*</p>
-    <p class="b-c-label">Comment</p>
-    <textarea style="height: 215px;" class="b-c-input"></textarea>
-    <p class="b-c-label">Name*</p>
-    <input type="text" style="" class="b-c-input">
-    <p class="b-c-label">Email*</p>
-    <input type="text" style="" class="b-c-input">
-    <p class="b-c-label">Facebook</p>
-    <input type="text" style="" class="b-c-input">
-    <div style="width: 100%; overflow: auto;">
-      <div class="b-c-btn"></div>
-    </div>
+    <form v-model="commentForm" ref="commentForm">
+      <p class="b-c-title">LEAVE A REPLY</p>
+      <div class="b-c-split"></div>
+      <p style="margin: 32px 0 30px 0;">Your email address will not be published. Required fields are marked*</p>
+      <p class="b-c-label">Comment</p>
+      <textarea style="height: 215px;" class="b-c-input" v-model="commentForm.comment"></textarea>
+      <p class="b-c-label">Name*</p>
+      <input type="text" style="" class="b-c-input" :class="{'b-c-input-error': errorHint.name}" v-model.trim="commentForm.name">
+      <p class="b-c-label">Email*</p>
+      <input type="text" style="" class="b-c-input" :class="{'b-c-input-error': errorHint.email}" v-model.trim="commentForm.email">
+      <p class="b-c-label">Facebook</p>
+      <input type="text" style="" class="b-c-input" v-model="commentForm.facebook">
+      <div style="width: 100%; overflow: auto;">
+        <div class="b-c-btn" @click="onSubmit"></div>
+      </div>
+    </form>
   </div>
 </template>
 
 <script>
+  import {createGetParams} from '../../utils/params'
+
   export default {
     name: 'blog-comment',
     components: {},
@@ -25,14 +29,66 @@
       width: {
         type: String,
         default: '100%',
+      },
+      blogId: {
+        type: String,
       }
     },
     data () {
       return {
+        commentForm: {
+          comment: '',
+          name: '',
+          email: '',
+          facebook: '',
+        },
+        errorHint: {
+          name: false,
+          email: false,
+        }
       }
     },
 
     methods: {
+      onSubmit() {
+        if (!this.needCheck())
+          return
+        const data = {
+          id: this.blogId,
+          name: this.commentForm.name,
+          email: this.commentForm.email,
+          res: this.commentForm.comment,
+          fb: this.commentForm.facebook,
+        }
+        this.$store.dispatch('BLOG_Comment', createGetParams(data)).then((data) => {
+          if (data.code) {
+            this.$message.error('error: ' + data.status)
+            return
+          }
+          this.$message({
+            message: 'TODO',
+            type: 'success'
+          })
+          this.clearForm()
+        }).catch(err => {
+          this.$message.error(err)
+        })
+      },
+
+      clearForm() {
+        Object.keys(this.commentForm).forEach(key => {
+          this.commentForm[key] = ''
+        })
+      },
+
+      needCheck() {
+        let canSubmit = true
+        Object.keys(this.errorHint).forEach(key => {
+          this.errorHint[key] = !this.commentForm[key]
+          canSubmit &= !this.errorHint[key]
+        })
+        return canSubmit
+      },
     },
 
     created() {
@@ -68,6 +124,11 @@
        max-width: 100%;
        height: 32px;
        font-size: 16px;
+       padding: 0 5px;
+    }
+
+    .b-c-input-error {
+      border: 1px solid red;
     }
 
     .b-c-label {

@@ -28,3 +28,11 @@ export function BLOG_GetBlogCategory() {
     method: 'get',
   })
  }
+
+ export function BLOG_Comment(data) {
+  return fetch({
+    url: 'comments.php',
+    method: 'post',
+    data,
+  })
+ }

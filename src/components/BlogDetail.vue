@@ -2,7 +2,7 @@
   <div class="index">
     <common-header :width="maxWidth"></common-header>
     <blog-detail-body :width="maxWidth" :blogId="blogId" :thumbSrc="thumbSrc"></blog-detail-body>
-    <blog-comment :width="maxWidth"></blog-comment>
+    <blog-comment :width="maxWidth" :blogId="blogId"></blog-comment>
     <common-tail :width="maxWidth" :top="top"></common-tail>
   </div>
 </template>
