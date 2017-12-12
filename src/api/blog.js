@@ -36,3 +36,10 @@ export function BLOG_GetBlogCategory() {
     data,
   })
  }
+
+ export function BLOG_GetRecommendingBlog(data) {
+  return fetch({
+    url: 'blogrec.php?' + data,
+    method: 'get',
+  })
+ }

@@ -79,7 +79,7 @@
     }
     .content-wrapper {
       padding: 0 30px;
-      margin: 20px auto 60px auto;
+      margin: 0px auto 60px auto;
       overflow: auto;
     }
   }

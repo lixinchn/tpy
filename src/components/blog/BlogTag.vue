@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" style="">
+  <div class="wrapper" style="margin-top: 40px;">
     <div class="search">
       <input type="text" v-model="searchKey" v-on:keyup.enter="onSearch(searchKey)">
       <img src="/static/img/blog/search.png" @click="onSearch(searchKey)">
