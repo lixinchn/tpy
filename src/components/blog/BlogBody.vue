@@ -11,6 +11,7 @@
 <script>
   import BlogList from './BlogList'
   import BlogTag from './BlogTag'
+  import {createGetParams} from '../../utils/params'
 
   export default {
     name: 'blog-body',
@@ -27,9 +28,22 @@
     },
 
     methods: {
+      getBlogList() {
+        const data = {cat: this.category, p: this.page}
+        this.$store.dispatch('BLOG_GetBlogList', createGetParams(data)).then((data) => {
+          if (data.code) {
+            this.$message.error('error: ' + data.status)
+            return
+          }
+          console.log(data)
+        }).catch(err => {
+          this.$message.error(err)
+        })
+      }
     },
 
     created() {
+      this.getBlogList()
     },
 
     computed: {

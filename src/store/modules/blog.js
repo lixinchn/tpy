@@ -3,8 +3,12 @@ import {BLOG_GetBlogList, BLOG_GetBlogCategory} from '../../api/blog'
 
 const log = {
   state: {
+    blogList: [],
   },
   mutations: {
+    SET_BLOG_LIST: (state, blogList) => {
+      state.blogList = blogList
+    }
   },
 
   actions: {
@@ -12,6 +16,8 @@ const log = {
     BLOG_GetBlogList({commit}, data) {
       return new Promise((resolve, reject) => {
         BLOG_GetBlogList(data).then(response => {
+          if (response.data.data.list)
+            commit('SET_BLOG_LIST', response.data.data.list)
           resolve(response.data)
         })
       })
