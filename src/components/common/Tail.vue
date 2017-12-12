@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100%; background: #290043; top: -8px; position: relative;">
+  <div style="width: 100%; background: #290043; position: relative;" :style="{top: top}">
     <el-row class="i-t-wrapper" type="flex" justify="space-around" :style="{width: width}">
       <div><a href="#" class="i-t-anchor" style="opacity: 0.45;">About us</a></div>
       <div><a href="#" class="i-t-anchor" style="opacity: 0.45;">Blog</a></div>
@@ -19,6 +19,10 @@ export default {
     width: {
       type: String,
       default: '100%',
+    },
+    top: {
+      type: String,
+      default: '-8px',
     }
   },
   data () {

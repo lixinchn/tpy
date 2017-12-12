@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from '@/components/Index'
 import Android from '@/components/Android'
 import IOS from '@/components/IOS'
+import Blog from '@/components/Blog'
 
 
 Vue.use(Router)
@@ -22,6 +23,11 @@ export default new Router({
       path: '/ios',
       name: 'iOS',
       component: IOS,
+    },
+    {
+      path: '/blog',
+      name: 'blog',
+      component: Blog,
     },
   ]
 })

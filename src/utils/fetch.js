@@ -5,8 +5,8 @@ import {Message} from 'element-ui'
 // axios.defaults.withCredentials = true;
 const service = axios.create({
   // baseURL: process.env.BASE_API, // api的base_url
-  baseURL: 'http://favor.ie.sogou.com/',
-  timeout: 5000,                  // 请求超时时间
+  baseURL: 'http://typany.com/api/',
+  timeout: 15000,                  // 请求超时时间
   // withCredentials: true,
 })
 
