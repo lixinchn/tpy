@@ -56,7 +56,7 @@
     },
 
     created() {
-      const tag = decodeURIComponent(this.$route.query.tag)
+      const tag = this.$route.query.tag ? decodeURIComponent(this.$route.query.tag) : ''
       if (tag)
         this.getBlogListByTag(tag)
       else
