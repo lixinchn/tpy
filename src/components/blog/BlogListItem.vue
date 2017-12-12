@@ -1,9 +1,9 @@
 <template>
   <div class="wrapper">
-    <!-- <img :src="blog.thumUrl" class="thumb"> -->
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST7YDjHjnP5DURcPrZpcFPO6BI6I4kOiqTvNeCy4NRYFbA--5J" class="thumb">
-    <!-- <p class="title">{{blog.title}}</p> -->
-    <p class="title">test test test test test test test test test test test test test test test test test test test test test test</p>
+    <img :src="blog.thumUrl" class="thumb">
+    <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST7YDjHjnP5DURcPrZpcFPO6BI6I4kOiqTvNeCy4NRYFbA--5J" class="thumb"> -->
+    <p class="title">{{blog.title}}</p>
+    <!-- <p class="title">test test test test test test test test test test test test test test test test test test test test test test</p> -->
     <div class="detail">
       <p>{{blog.pubTime}}</p>
       <img src="/static/img/blog/tag.png" style="vertical-align: middle; margin-left: 10px;">

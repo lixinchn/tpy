@@ -1,12 +1,12 @@
 <template>
   <div class="wrapper" style="">
     <div class="search">
-      <input type="text">
-      <img src="/static/img/blog/search.png">
+      <input type="text" v-model="searchKey" v-on:keyup.enter="onSearch(searchKey)">
+      <img src="/static/img/blog/search.png" @click="onSearch(searchKey)">
     </div>
 
     <div class="tag-list">
-      <li v-for="tag in tagList">{{tag.title}}</li>
+      <li v-for="tag in tagList" @click="onSearch(tag.title)">{{tag.title}}</li>
     </div>
   </div>
 </template>
@@ -22,6 +22,7 @@
     data () {
       return {
         tagList: [],
+        searchKey: '',
       }
     },
 
@@ -37,7 +38,23 @@
         }).catch(err => {
           this.$message.error(err)
         })
-      }
+      },
+
+      onSearch(searchKeyText) {
+        const searchKey = searchKeyText.trim()
+        if (!searchKey)
+          return
+        const data = {tag: encodeURIComponent(searchKey)}
+        this.$store.dispatch('BLOG_SearchByKey', createGetParams(data)).then((data) => {
+          if (data.code) {
+            this.$message.error('error: ' + data.status)
+            return
+          }
+          console.log(data)
+        }).catch(err => {
+          this.$message.error(err)
+        })
+      },
     },
 
     created() {

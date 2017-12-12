@@ -1,8 +1,6 @@
 <template>
   <div class="wrapper">
     <blog-list-item v-for="blog in blogList" :blog="blog"></blog-list-item>
-    <blog-list-item v-for="blog in blogList" :blog="blog"></blog-list-item>
-    <blog-list-item v-for="blog in blogList" :blog="blog"></blog-list-item>
   </div>
 </template>
 

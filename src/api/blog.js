@@ -14,3 +14,10 @@ export function BLOG_GetBlogCategory() {
     method: 'get',
   })
 }
+
+ export function BLOG_SearchByKey(data) {
+  return fetch({
+    url: 'search.php?' + data,
+    method: 'get',
+  })
+ }

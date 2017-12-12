@@ -1,4 +1,4 @@
-import {BLOG_GetBlogList, BLOG_GetBlogCategory} from '../../api/blog'
+import {BLOG_GetBlogList, BLOG_GetBlogCategory, BLOG_SearchByKey} from '../../api/blog'
 
 
 const log = {
@@ -27,6 +27,16 @@ const log = {
     BLOG_GetBlogCategory({commit}) {
       return new Promise((resolve, reject) => {
         BLOG_GetBlogCategory().then(response => {
+          resolve(response.data)
+        })
+      })
+    },
+
+    BLOG_SearchByKey({commit}, data) {
+      return new Promise((resolve, reject) => {
+        BLOG_SearchByKey(data).then(response => {
+          if (response.data.data.list)
+            commit('SET_BLOG_LIST', response.data.data.list)
           resolve(response.data)
         })
       })
