@@ -1,6 +1,9 @@
 <template>
-  <div style="width: 100%; height: 240px; background: #290043; position: relative;">
+  <div style="width: 100%; height: 236px; background: #290043; position: relative;">
     <a href="#" class="bottom-btn"></a>
+    <div style="position: absolute; bottom: 0px; z-index: 100; left: 36px; right: 36px;">
+      <div style="background: #fff; opacity: 0.1; width: 100%; height: 3px; "></div>
+    </div>
   </div>
 </template>
 
