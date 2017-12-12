@@ -44,7 +44,12 @@
         const searchKey = searchKeyText.trim()
         if (!searchKey)
           return
-        const data = {tag: encodeURIComponent(searchKey)}
+        // 如果当前页面不是 blog list 页面，就带着参数跳回去
+        if (this.$route.path !== '/blog') {
+          this.$router.push({path: '/blog', query: {tag: searchKey}})
+          return
+        }
+        const data = {tag: searchKey}
         this.$store.dispatch('BLOG_SearchByKey', createGetParams(data)).then((data) => {
           if (data.code) {
             this.$message.error('error: ' + data.status)

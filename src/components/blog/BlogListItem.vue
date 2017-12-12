@@ -1,6 +1,6 @@
 <template>
-  <div class="wrapper">
-    <img :src="blog.thumUrl" class="thumb">
+  <div class="wrapper" @click="onClick(blog.id, blog.thumbUrl)">
+    <img :src="blog.thumbUrl" class="thumb">
     <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST7YDjHjnP5DURcPrZpcFPO6BI6I4kOiqTvNeCy4NRYFbA--5J" class="thumb"> -->
     <p class="title">{{blog.title}}</p>
     <!-- <p class="title">test test test test test test test test test test test test test test test test test test test test test test</p> -->
@@ -28,9 +28,13 @@
     },
 
     methods: {
+      onClick(id, thumbUrl) {
+        this.$router.push({path: 'blog/detail', query: {id: id, thumbSrc: encodeURIComponent(thumbUrl)}})
+      }
     },
 
     created() {
+
     },
 
     computed: {

@@ -1,4 +1,4 @@
-import {BLOG_GetBlogList, BLOG_GetBlogCategory, BLOG_SearchByKey} from '../../api/blog'
+import {BLOG_GetBlogList, BLOG_GetBlogCategory, BLOG_SearchByKey, BLOG_GetBlogInfo} from '../../api/blog'
 
 
 const log = {
@@ -41,6 +41,14 @@ const log = {
         })
       })
     },
+
+    BLOG_GetBlogInfo({commit}, data) {
+      return new Promise((resolve, reject) => {
+        BLOG_GetBlogInfo(data).then(response => {
+          resolve(response.data)
+        })
+      })
+    }
   }
 }
 

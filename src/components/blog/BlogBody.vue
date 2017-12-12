@@ -39,11 +39,28 @@
         }).catch(err => {
           this.$message.error(err)
         })
-      }
+      },
+
+      getBlogListByTag(tag) {
+        const data = {tag: tag}
+        this.$store.dispatch('BLOG_SearchByKey', createGetParams(data)).then((data) => {
+          if (data.code) {
+            this.$message.error('error: ' + data.status)
+            return
+          }
+          console.log(data)
+        }).catch(err => {
+          this.$message.error(err)
+        })
+      },
     },
 
     created() {
-      this.getBlogList()
+      const tag = decodeURIComponent(this.$route.query.tag)
+      if (tag)
+        this.getBlogListByTag(tag)
+      else
+        this.getBlogList()
     },
 
     computed: {

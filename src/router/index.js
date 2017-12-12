@@ -4,6 +4,7 @@ import Index from '@/components/Index'
 import Android from '@/components/Android'
 import IOS from '@/components/IOS'
 import Blog from '@/components/Blog'
+import BlogDetail from '@/components/BlogDetail'
 
 
 Vue.use(Router)
@@ -28,6 +29,11 @@ export default new Router({
       path: '/blog',
       name: 'blog',
       component: Blog,
+    },
+    {
+      path: '/blog/detail',
+      name: 'blogDetail',
+      component: BlogDetail,
     },
   ]
 })

@@ -21,3 +21,10 @@ export function BLOG_GetBlogCategory() {
     method: 'get',
   })
  }
+
+ export function BLOG_GetBlogInfo(data) {
+  return fetch({
+    url: 'bloginfo.php?' + data,
+    method: 'get',
+  })
+ }
