@@ -14,8 +14,8 @@
     </div>
     <div class="banner">
       <div class="b-content">
-        <p style="font-size: 18px; margin: 0 auto 24px auto; left: 490px; top: 90px;">We're still striving for more improvement and innovation.</p>
-        <p style="font-size: 30px; left: 370px; top: 120px;">Typany Keyboard is always here to hear your voice.</p>
+        <p style="font-size: 18px; margin: 0 auto 24px auto; left: 50%; top: 100px; transform: translate(-50%, -50%)">We're still striving for more improvement and innovation.</p>
+        <p style="font-size: 30px; left: 50%; top: 140px; transform: translate(-50%, -50%)">Typany Keyboard is always here to hear your voice.</p>
       </div>
       <div class="b-bg"></div>
     </div>
@@ -52,7 +52,7 @@
     text-align: left;
     width: 100%;
     background-color: rgba(69, 69, 69, 0.03);
-    padding: 48px 80px 0px 0px;
+    padding: 48px 0px 0px 0px;
 
     p {
       margin: 0;
