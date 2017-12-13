@@ -55,8 +55,7 @@
       },
 
       onClose() {
-        this.$store.dispatch('CONTACT_CloseImageForm').then(() => {
-        })
+        this.$emit('closeConfirmImageForm')
       },
 
       onUploadSucc(val) {

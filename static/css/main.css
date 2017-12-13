@@ -19,6 +19,11 @@
   height: 212px;
 }
 
+.dialog-drop {
+  width: 268px !important;
+  height: 258px;
+}
+
 .el-dialog__header {
   height: 0 !important;
   padding: 0 !important;

@@ -19,7 +19,7 @@
       class="popimage"
       @hide="onImagePopHide"
     >
-      <contact-image-form v-on:imageSubmit="onImageSubmit"></contact-image-form>
+      <contact-image-form v-on:imageSubmit="onImageSubmit" v-on:closeConfirmImageForm="onCloseConfirmImageForm"></contact-image-form>
     </el-popover>
 
     <form v-model="contactForm" ref="contactForm">
@@ -68,6 +68,20 @@
         <div class="c-i-f-close" @click="onSuccDialogClose"></div>
       </div>
     </el-dialog>
+
+    <el-dialog
+      title=""
+      ref="dropDialog"
+      :visible.sync="dialogDrop"
+      customClass="dialog-drop">
+      <div class="d-d-back">
+        <img src="/static/img/contact/drop-question.png" style="margin-top: 40px;">
+        <p>Drop upload images</p>
+        <div class="d-d-btn d-d-btn-yes" @click="onDropYes"></div>
+        <div class="d-d-btn d-d-btn-no" @click="onDropClose"></div>
+        <div class="c-i-f-close" @click="onDropClose"></div>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -89,6 +103,7 @@
     data () {
       return {
         dialogSubmitSucc: false,
+        dialogDrop: false,
         videoFormManualClose: false,
         imageFormManualClose: false,
         contactForm: {
@@ -151,6 +166,18 @@
       onSuccDialogClose() {
         this.$refs.succDialog.doClose()
         this.$refs.succDialog.hide()
+      },
+      onDropClose() {
+        this.$refs.dropDialog.doClose()
+        this.$refs.dropDialog.hide()
+      },
+      onCloseConfirmImageForm() {
+        this.dialogDrop = true
+      },
+      onDropYes() {
+        this.$store.dispatch('CONTACT_CloseImageForm').then(() => {
+          this.onDropClose()
+        })
       },
     },
 
@@ -308,15 +335,15 @@
       right: 5px;
       width: 16px;
       height: 16px;
-      background: url(/static/img/contact/close-pop.png) no-repeat;
+      background: url(/static/img/contact/drop-close.png) no-repeat;
       background-size: 100% 100%;
       cursor: pointer;
       &:hover {
-        background: url(/static/img/contact/close-pop-hover.png);
+        background: url(/static/img/contact/drop-close-hover.png);
         background-size: 100% 100%;
       }
       &:active {
-        background: url(/static/img/contact/close-pop-active.png);
+        background: url(/static/img/contact/drop-close-active.png);
         background-size: 100% 100%;
       }
     }
@@ -330,6 +357,44 @@
       font-size: 16px;
       font-family: Helvetica;
       color: #fff;
+    }
+  }
+
+  .d-d-back {
+    width: 100%;
+    height: 100%;
+    background: url(/static/img/contact/drop-back.png) no-repeat;
+    background-size: 100% 100%;
+    p {
+      font-size: 16px;
+      font-family: Helvetica;
+      color: #fff;
+    }
+    .d-d-btn {
+      width: 87px;
+      height: 40px;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 25px;
+    }
+    .d-d-btn-yes {
+      margin-right: 24px;
+      background: url(/static/img/contact/drop-yes.png) no-repeat;
+      &:hover {
+        background: url(/static/img/contact/drop-yes-hover.png);
+      }
+      &:active {
+        background: url(/static/img/contact/drop-yes-active.png);
+      }
+    }
+    .d-d-btn-no {
+      background: url(/static/img/contact/drop-no.png) no-repeat;
+      &:hover {
+        background: url(/static/img/contact/drop-no-hover.png);
+      }
+      &:active {
+        background: url(/static/img/contact/drop-no-active.png);
+      }
     }
   }
 </style>
