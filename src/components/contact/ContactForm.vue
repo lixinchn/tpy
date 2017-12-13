@@ -21,6 +21,7 @@
         <div class="youtube-video-info" v-show="textareaVideoInfo.title">
           <img :src="textareaVideoInfo.thumbnails ? textareaVideoInfo.thumbnails.default.url : ''" style="width: 48%; height: 100%; display: inline-block;">
           <p style="width: 48%; height: 100%; overflow: hidden; display: inline-block; margin: 0;">{{textareaVideoInfo.title}}</p>
+          <div class="c-v-f-close" @click="onRemoveVideo"></div>
         </div>
       </div>
       <div style="width: 912px; overflow: auto; margin: 0 auto">
@@ -78,6 +79,11 @@
       },
       onVideoSubmit(url) {
         this.contactForm.video = url
+      },
+      onRemoveVideo() {
+        this.$store.dispatch('CONTACT_RemoveTextareaVideoInfo').then(() => {
+          this.contactForm.video = ''
+        })
       }
     },
 
@@ -104,6 +110,7 @@
 <style lang="scss" scoped>
   .c-f-wrapper {
     margin-bottom: 200px;
+
     .b-c-input {
       border: 1px solid #ccc;
       border-radius: 2px;
@@ -157,6 +164,25 @@
       width: 318px;
       position: absolute;
       top: 0px;
+
+      .c-v-f-close {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 20px;
+        height: 20px;
+        background: url(/static/img/contact/close.png) no-repeat;
+        background-size: 100% 100%;
+        cursor: pointer;
+        &:hover {
+          background: url(/static/img/contact/close-hover.png);
+          background-size: 100% 100%;
+        }
+        &:active {
+          background: url(/static/img/contact/close-active.png);
+          background-size: 100% 100%;
+        }
+      }
     }
   }
 </style>

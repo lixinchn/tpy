@@ -19,6 +19,9 @@ const contact = {
       state.textareaVideoInfo = state.youtubeVideoInfo
       state.youtubeVideoInfo = {}
     },
+    REMOVE_TEXTAREA_VIDEO_INFO: (state) => {
+      state.textareaVideoInfo = {}
+    },
   },
 
   actions: {
@@ -42,6 +45,13 @@ const contact = {
     CONTACT_SetTextareaVideoInfo({commit}) {
       return new Promise((resolve, reject) => {
         commit('SET_TEXTAREA_VIDEO_INFO')
+        resolve()
+      })
+    },
+
+    CONTACT_RemoveTextareaVideoInfo({commit}) {
+      return new Promise((resolve, reject) => {
+        commit('REMOVE_TEXTAREA_VIDEO_INFO')
         resolve()
       })
     }
