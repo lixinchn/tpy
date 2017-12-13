@@ -55,6 +55,19 @@
         <div class="b-c-btn" @click="onSubmit"></div>
       </div>
     </form>
+
+    <el-dialog
+      title=""
+      ref="succDialog"
+      :visible.sync="dialogSubmitSucc"
+      customClass="dialog-submit-succ">
+      <div class="d-s-back">
+        <img src="/static/img/contact/contact-succ.png" style="margin-top: 40px;">
+        <p>Your Feedback is Highly</p>
+        <p>Appreciated!</p>
+        <div class="c-i-f-close" @click="onSuccDialogClose"></div>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -62,6 +75,7 @@
   import {mapGetters} from 'vuex'
   import ContactVideoForm from './ContactVideoForm'
   import ContactImageForm from './ContactImageForm'
+  import {createGetParams, paramArrayToString} from '../../utils/params'
 
   export default {
     name: 'contact-form',
@@ -74,6 +88,7 @@
     },
     data () {
       return {
+        dialogSubmitSucc: false,
         videoFormManualClose: false,
         imageFormManualClose: false,
         contactForm: {
@@ -89,7 +104,21 @@
 
     methods: {
       onSubmit() {
-
+        const data = {
+          name: this.contactForm.name,
+          email: this.contactForm.email,
+          res: this.contactForm.comment,
+          pics: paramArrayToString(this.contactForm.images),
+          video: this.contactForm.video,
+        }
+        this.$store.dispatch('CONTACT_Contact', createGetParams(data)).then((data) => {
+          if (data.code) {
+            this.$message.error('error: ' + data.msg)
+            return
+          }
+          console.log(data)
+          this.dialogSubmitSucc = true
+        })
       },
       onVideoPopHide() {
         if (this.videoFormManualClose) {
@@ -118,6 +147,10 @@
       },
       onRemoveImage(index) {
         this.contactForm.images.splice(index, 1)
+      },
+      onSuccDialogClose() {
+        this.$refs.succDialog.doClose()
+        this.$refs.succDialog.hide()
       },
     },
 
@@ -232,6 +265,7 @@
       border: 1px solid #ccc;
       width: 318px;
       position: relative;
+      text-align: left;
     }
 
     .image-textarea-prev {
@@ -266,6 +300,36 @@
         background: url(/static/img/contact/close-active.png);
         background-size: 100% 100%;
       }
+    }
+
+    .c-i-f-close {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 16px;
+      height: 16px;
+      background: url(/static/img/contact/close-pop.png) no-repeat;
+      background-size: 100% 100%;
+      cursor: pointer;
+      &:hover {
+        background: url(/static/img/contact/close-pop-hover.png);
+        background-size: 100% 100%;
+      }
+      &:active {
+        background: url(/static/img/contact/close-pop-active.png);
+        background-size: 100% 100%;
+      }
+    }
+  }
+
+  .d-s-back {
+    width: 100%;
+    height: 100%;
+    background: url(/static/img/contact/contact-succ-back.png) no-repeat;
+    p {
+      font-size: 16px;
+      font-family: Helvetica;
+      color: #fff;
     }
   }
 </style>

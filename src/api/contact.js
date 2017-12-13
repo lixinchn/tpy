@@ -7,3 +7,11 @@ export function CONTACT_GetYoutubeVideoInfo(data) {
     method: 'get',
   })
 }
+
+export function CONTACT_Contact(data) {
+  return fetch({
+    url: 'joinus.php',
+    method: 'post',
+    data,
+  })
+}

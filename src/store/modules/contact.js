@@ -1,4 +1,4 @@
-import {CONTACT_GetYoutubeVideoInfo} from '../../api/contact'
+import {CONTACT_GetYoutubeVideoInfo, CONTACT_Contact} from '../../api/contact'
 
 
 const contact = {
@@ -66,7 +66,15 @@ const contact = {
         commit('REMOVE_TEXTAREA_VIDEO_INFO')
         resolve()
       })
-    }
+    },
+
+    CONTACT_Contact({commit}, data) {
+      return new Promise((resolve, reject) => {
+        CONTACT_Contact(data).then(response => {
+          resolve(response.data)
+        })
+      })
+    },
   }
 }
 

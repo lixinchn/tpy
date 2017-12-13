@@ -5,3 +5,8 @@ export function createGetParams(data) {
   })
   return arrParams.join('&')
 }
+
+export function paramArrayToString(arr) {
+  let joinRes = arr.join('\",\"')
+  return '[' + (joinRes ? '\"' + joinRes + '\"' : '') + ']'
+}

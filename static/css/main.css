@@ -13,3 +13,19 @@
   font: 16px "Avenir Book";
   text-decoration: none;
 }
+
+.dialog-submit-succ {
+  width: 268px !important;
+  height: 212px;
+}
+
+.el-dialog__header {
+  height: 0 !important;
+  padding: 0 !important;
+  display: none !important;
+}
+
+.el-dialog__body {
+  height: 100% !important;
+  padding: 0 !important;
+}
