@@ -1,9 +1,9 @@
 <template>
   <div style="width: 100%; background: #290043; position: relative;" :style="{top: top}">
     <el-row class="i-t-wrapper" type="flex" justify="space-around" :style="{width: width}">
-      <div><a href="#" class="i-t-anchor" style="opacity: 0.45;">About us</a></div>
-      <div><a href="#" class="i-t-anchor" style="opacity: 0.45;">Blog</a></div>
-      <div><a href="#" class="i-t-anchor" style="opacity: 0.45;">Contact</a></div>
+      <div><a href="#/about" class="i-t-anchor" style="opacity: 0.45;">About us</a></div>
+      <div><a href="#/blog" class="i-t-anchor" style="opacity: 0.45;">Blog</a></div>
+      <div><a href="#/contact" class="i-t-anchor" style="opacity: 0.45;">Contact</a></div>
       <div><a href="#" class="i-t-anchor" style="opacity: 0.45;">FAQ</a></div>
       <div><a href="#" class="i-t-anchor" style="opacity: 0.2;">Terms of Service</a></div>
       <div><a href="#" class="i-t-anchor" style="opacity: 0.2;">Privacy Policy</a></div>
