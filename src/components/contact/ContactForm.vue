@@ -7,15 +7,22 @@
       height="192"
       trigger="click"
       class="popvideo"
+      @hide="onVideoPopHide"
     >
-      <contact-video-form></contact-video-form>
+      <contact-video-form v-on:videoSubmit="onVideoSubmit"></contact-video-form>
     </el-popover>
 
     <form v-model="contactForm" ref="contactForm">
       <input type="text" style="" class="b-c-input" v-model.trim="contactForm.name" placeholder="Name">
       <input type="text" style="" class="b-c-input" v-model.trim="contactForm.email" placeholder="Email">
       <input type="text" style="" class="b-c-input" v-model="contactForm.occupation" placeholder="Occupation">
-      <textarea style="height: 215px; padding-top: 5px; margin-bottom: 8px;" class="b-c-input" v-model="contactForm.comment" placeholder="Tell us about your story and interests"></textarea>
+      <div style="position: relative; width: 910px; margin: 0 auto;">
+        <textarea style="height: 215px; padding-top: 5px; margin-bottom: 8px;" class="b-c-input" v-model="contactForm.comment" placeholder="Tell us about your story and interests"></textarea>
+        <div class="youtube-video-info" v-show="textareaVideoInfo.title">
+          <img :src="textareaVideoInfo.thumbnails ? textareaVideoInfo.thumbnails.default.url : ''" style="width: 48%; height: 100%; display: inline-block;">
+          <p style="width: 48%; height: 100%; overflow: hidden; display: inline-block; margin: 0;">{{textareaVideoInfo.title}}</p>
+        </div>
+      </div>
       <div style="width: 912px; overflow: auto; margin: 0 auto">
         <div class="c-f-icon">
           <img src="/static/img/contact/image-icon.png">
@@ -32,6 +39,7 @@
 </template>
 
 <script>
+  import {mapGetters} from 'vuex'
   import ContactVideoForm from './ContactVideoForm'
 
   export default {
@@ -45,6 +53,7 @@
     },
     data () {
       return {
+        videoFormManualClose: false,
         contactForm: {
           name: '',
           email: '',
@@ -59,6 +68,16 @@
     methods: {
       onSubmit() {
 
+      },
+      onVideoPopHide() {
+        if (this.videoFormManualClose) {
+          this.videoFormManualClose = false
+          return
+        }
+        this.$refs.popvideo.doShow()
+      },
+      onVideoSubmit(url) {
+        this.contactForm.video = url
       }
     },
 
@@ -66,6 +85,18 @@
     },
 
     computed: {
+      ...mapGetters({
+        onCloseVideoForm: 'closeVideoForm',
+      }),
+      ...mapGetters([
+        'textareaVideoInfo',
+      ]),
+    },
+    watch: {
+      onCloseVideoForm() {
+        this.videoFormManualClose = true
+        this.$refs.popvideo.doClose()
+      }
     }
   }
 </script>
@@ -117,6 +148,15 @@
 
     .popvideo {
       height: 192px;
+    }
+
+    .youtube-video-info {
+      height: 80px;
+      margin-top: 12px;
+      border: 1px solid #ccc;
+      width: 318px;
+      position: absolute;
+      top: 0px;
     }
   }
 </style>
