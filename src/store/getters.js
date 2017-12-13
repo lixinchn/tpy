@@ -4,6 +4,7 @@ const getters = {
   youtubeVideoInfo: state => state.contact.youtubeVideoInfo,
   closeVideoForm: state => state.contact.closeVideoForm,
   textareaVideoInfo: state => state.contact.textareaVideoInfo,
+  closeImageForm: state => state.contact.closeImageForm,
 }
 
 export default getters

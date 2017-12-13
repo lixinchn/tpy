@@ -6,6 +6,7 @@ const contact = {
     youtubeVideoInfo: {},
     textareaVideoInfo: {},
     closeVideoForm: false,
+    closeImageForm: false,
   },
   mutations: {
     SET_YOUTUBE_VIDEO_INFO: (state, youtubeVideoInfo) => {
@@ -21,6 +22,10 @@ const contact = {
     },
     REMOVE_TEXTAREA_VIDEO_INFO: (state) => {
       state.textareaVideoInfo = {}
+    },
+
+    SET_CLOSE_IMAGE_FORM: (state) => {
+      state.closeImageForm = !state.closeImageForm
     },
   },
 
@@ -38,6 +43,13 @@ const contact = {
     CONTACT_CloseVideoForm({commit}) {
       return new Promise((resolve, reject) => {
         commit('SET_CLOSE_VIDEO_FORM')
+        resolve()
+      })
+    },
+
+    CONTACT_CloseImageForm({commit}) {
+      return new Promise((resolve, reject) => {
+        commit('SET_CLOSE_IMAGE_FORM')
         resolve()
       })
     },

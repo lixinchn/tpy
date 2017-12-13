@@ -4,12 +4,22 @@
       ref="popvideo"
       placement="bottom-start"
       width="344"
-      height="192"
       trigger="click"
       class="popvideo"
       @hide="onVideoPopHide"
     >
       <contact-video-form v-on:videoSubmit="onVideoSubmit"></contact-video-form>
+    </el-popover>
+
+    <el-popover
+      ref="popimage"
+      placement="bottom-start"
+      width="204"
+      trigger="click"
+      class="popimage"
+      @hide="onImagePopHide"
+    >
+      <contact-image-form v-on:videoSubmit="onImageSubmit"></contact-image-form>
     </el-popover>
 
     <form v-model="contactForm" ref="contactForm">
@@ -26,7 +36,7 @@
       </div>
       <div style="width: 912px; overflow: auto; margin: 0 auto">
         <div class="c-f-icon">
-          <img src="/static/img/contact/image-icon.png">
+          <img src="/static/img/contact/image-icon.png" v-popover:popimage>
           <span>image</span>
         </div>
         <div class="c-f-icon">
@@ -42,10 +52,11 @@
 <script>
   import {mapGetters} from 'vuex'
   import ContactVideoForm from './ContactVideoForm'
+  import ContactImageForm from './ContactImageForm'
 
   export default {
     name: 'contact-form',
-    components: {ContactVideoForm},
+    components: {ContactVideoForm, ContactImageForm},
     props: {
       width: {
         type: String,
@@ -55,6 +66,7 @@
     data () {
       return {
         videoFormManualClose: false,
+        imageFormManualClose: false,
         contactForm: {
           name: '',
           email: '',
@@ -84,6 +96,16 @@
         this.$store.dispatch('CONTACT_RemoveTextareaVideoInfo').then(() => {
           this.contactForm.video = ''
         })
+      },
+      onImagePopHide() {
+        if (this.imageFormManualClose) {
+          this.imageFormManualClose = false
+          return
+        }
+        this.$refs.popimage.doShow()
+      },
+      onImageSubmit(url) {
+        console.log(url)
       }
     },
 
@@ -93,6 +115,7 @@
     computed: {
       ...mapGetters({
         onCloseVideoForm: 'closeVideoForm',
+        onCloseImageForm: 'closeImageForm',
       }),
       ...mapGetters([
         'textareaVideoInfo',
@@ -102,6 +125,10 @@
       onCloseVideoForm() {
         this.videoFormManualClose = true
         this.$refs.popvideo.doClose()
+      },
+      onCloseImageForm() {
+        this.imageFormManualClose = true
+        this.$refs.popimage.doClose()
       }
     }
   }
@@ -155,6 +182,10 @@
 
     .popvideo {
       height: 192px;
+    }
+
+    .popimage {
+      height: 260px;
     }
 
     .youtube-video-info {
