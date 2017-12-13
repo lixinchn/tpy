@@ -58,6 +58,7 @@
         this.$store.dispatch('CONTACT_CloseVideoForm').then(() => {
           this.$store.dispatch('CONTACT_SetTextareaVideoInfo').then(() => {
             this.$emit('videoSubmit', this.url)
+            this.url = ''
           })
         })
       },

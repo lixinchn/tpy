@@ -19,7 +19,7 @@
       class="popimage"
       @hide="onImagePopHide"
     >
-      <contact-image-form v-on:videoSubmit="onImageSubmit"></contact-image-form>
+      <contact-image-form v-on:imageSubmit="onImageSubmit"></contact-image-form>
     </el-popover>
 
     <form v-model="contactForm" ref="contactForm">
@@ -27,11 +27,20 @@
       <input type="text" style="" class="b-c-input" v-model.trim="contactForm.email" placeholder="Email">
       <input type="text" style="" class="b-c-input" v-model="contactForm.occupation" placeholder="Occupation">
       <div style="position: relative; width: 910px; margin: 0 auto;">
-        <textarea style="height: 215px; padding-top: 5px; margin-bottom: 8px;" class="b-c-input" v-model="contactForm.comment" placeholder="Tell us about your story and interests"></textarea>
-        <div class="youtube-video-info" v-show="textareaVideoInfo.title">
-          <img :src="textareaVideoInfo.thumbnails ? textareaVideoInfo.thumbnails.default.url : ''" style="width: 48%; height: 100%; display: inline-block;">
-          <p style="width: 48%; height: 100%; overflow: hidden; display: inline-block; margin: 0;">{{textareaVideoInfo.title}}</p>
-          <div class="c-v-f-close" @click="onRemoveVideo"></div>
+        <textarea style="margin-bottom: 8px;" :style="autoStyle" class="b-c-input" v-model="contactForm.comment" :placeholder="textAreaPlaceholder"></textarea>
+
+        <div class="i-v-prev">
+          <div style="width: 224px; overflow: hidden; padding-top: 12px;">
+            <div v-for="(image, index) in contactForm.images" class="image-textarea-prev">
+              <img :src="image" :key="index">
+              <div class="c-v-f-close" @click="onRemoveImage(index)"></div>
+            </div>
+          </div>
+          <div class="youtube-video-info" v-show="textareaVideoInfo.title">
+            <img :src="textareaVideoInfo.thumbnails ? textareaVideoInfo.thumbnails.default.url : ''" style="width: 48%; height: 100%; display: inline-block;">
+            <p style="width: 48%; height: 100%; overflow: hidden; display: inline-block; margin: 0;">{{textareaVideoInfo.title}}</p>
+            <div class="c-v-f-close" @click="onRemoveVideo"></div>
+          </div>
         </div>
       </div>
       <div style="width: 912px; overflow: auto; margin: 0 auto">
@@ -104,9 +113,12 @@
         }
         this.$refs.popimage.doShow()
       },
-      onImageSubmit(url) {
-        console.log(url)
-      }
+      onImageSubmit(imageList) {
+        this.contactForm.images = imageList
+      },
+      onRemoveImage(index) {
+        this.contactForm.images.splice(index, 1)
+      },
     },
 
     created() {
@@ -120,6 +132,26 @@
       ...mapGetters([
         'textareaVideoInfo',
       ]),
+      autoStyle() {
+        let style = {}
+        style.height = (this.contactForm.images.length > 0 && this.textareaVideoInfo.title) ? '415px' : '215px'
+        
+        let paddingTop = 5
+        if (this.contactForm.images.length > 0 && this.contactForm.images.length <= 3)
+          paddingTop += 80
+        else if (this.contactForm.images.length > 3)
+          paddingTop += 160
+
+        if (this.textareaVideoInfo.title)
+          paddingTop += 110
+        style['padding-top'] = paddingTop + 'px'
+        return style
+      },
+      textAreaPlaceholder() {
+        if (this.contactForm.images.length > 0 || this.textareaVideoInfo.title)
+          return ''
+        return 'Tell us about your story and interests'
+      },
     },
     watch: {
       onCloseVideoForm() {
@@ -188,31 +220,51 @@
       height: 260px;
     }
 
+    .i-v-prev {
+      position: absolute;
+      top: 0px;
+      left: 10px;
+    }
+
     .youtube-video-info {
       height: 80px;
       margin-top: 12px;
       border: 1px solid #ccc;
       width: 318px;
-      position: absolute;
-      top: 0px;
+      position: relative;
+    }
 
-      .c-v-f-close {
-        position: absolute;
-        top: -10px;
-        right: -10px;
-        width: 20px;
-        height: 20px;
-        background: url(/static/img/contact/close.png) no-repeat;
+    .image-textarea-prev {
+      width: 58px;
+      height: 58px;
+      float: left;
+      margin-right: 12px;
+      margin-bottom: 12px;
+      position: relative;
+      border: 1px solid #ccc;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .c-v-f-close {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 20px;
+      height: 20px;
+      background: url(/static/img/contact/close.png) no-repeat;
+      background-size: 100% 100%;
+      cursor: pointer;
+      &:hover {
+        background: url(/static/img/contact/close-hover.png);
         background-size: 100% 100%;
-        cursor: pointer;
-        &:hover {
-          background: url(/static/img/contact/close-hover.png);
-          background-size: 100% 100%;
-        }
-        &:active {
-          background: url(/static/img/contact/close-active.png);
-          background-size: 100% 100%;
-        }
+      }
+      &:active {
+        background: url(/static/img/contact/close-active.png);
+        background-size: 100% 100%;
       }
     }
   }

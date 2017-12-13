@@ -4,7 +4,7 @@
       <p style="float: left; margin: 0;">Upload local file</p>
       <div class="c-i-f-close" @click="onClose"></div>
     </div>
-    <div style="overflow: hidden; margin: 22px 0 20px 0;">
+    <div style="overflow: hidden; margin: 22px 0 10px 0;">
       <img v-for="(image, index) in imageList" :src="image" :key="index" class="image-prev" :style="marginRight(index)">
       <el-upload
         action="http://typany.com/api/revpic.php"
@@ -50,9 +50,7 @@
           return
         
         this.$store.dispatch('CONTACT_CloseImageForm').then(() => {
-          this.$store.dispatch('CONTACT_SetTextareaVideoInfo').then(() => {
-            this.$emit('videoSubmit', this.url)
-          })
+          this.$emit('imageSubmit', this.imageList)
         })
       },
 
@@ -135,13 +133,13 @@
       height: 58px;
       float: left;
       margin-right: 15px;
+      margin-bottom: 12px;
     }
 
     .c-v-f-btn {
       width: 87px;
       height: 40px;
       float: right;
-      margin-top: 20px;
       margin-bottom: 10px;
     }
 
