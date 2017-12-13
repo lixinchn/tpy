@@ -2,7 +2,7 @@ import {BLOG_GetBlogList, BLOG_GetBlogCategory, BLOG_SearchByKey, BLOG_GetBlogIn
         BLOG_GetRecommendingBlog} from '../../api/blog'
 
 
-const log = {
+const blog = {
   state: {
     blogList: [],
     hasSearchResults: true,
@@ -81,4 +81,4 @@ const log = {
   }
 }
 
-export default log
+export default blog

@@ -6,6 +6,7 @@ import IOS from '@/components/IOS'
 import Blog from '@/components/Blog'
 import BlogDetail from '@/components/BlogDetail'
 import About from '@/components/About'
+import Contact from '@/components/Contact'
 
 
 Vue.use(Router)
@@ -40,6 +41,11 @@ export default new Router({
       path: '/about',
       name: 'about',
       component: About,
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: Contact,
     },
   ]
 })
