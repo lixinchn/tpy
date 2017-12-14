@@ -112,18 +112,31 @@
           occupation: '',
           comment: '',
           images: [],
+          imagesLocation: [],
           video: '',
         }
       }
     },
 
     methods: {
+      refreshContactForm() {
+        this.contactForm = {
+          name: '',
+          email: '',
+          occupation: '',
+          comment: '',
+          images: [],
+          imagesLocation: [],
+          video: '',
+        }
+      },
+
       onSubmit() {
         const data = {
           name: this.contactForm.name,
           email: this.contactForm.email,
           res: this.contactForm.comment,
-          pics: paramArrayToString(this.contactForm.images),
+          pics: paramArrayToString(this.contactForm.imagesLocation),
           video: this.contactForm.video,
         }
         this.$store.dispatch('CONTACT_Contact', createGetParams(data)).then((data) => {
@@ -133,6 +146,7 @@
           }
           console.log(data)
           this.dialogSubmitSucc = true
+          this.refreshContactForm()
         })
       },
       onVideoPopHide() {
@@ -157,11 +171,13 @@
         }
         this.$refs.popimage.doShow()
       },
-      onImageSubmit(imageList) {
-        this.contactForm.images = imageList
+      onImageSubmit(imageInfo) {
+        this.contactForm.images = imageInfo.imageDataUrlList
+        this.contactForm.imagesLocation = imageInfo.imageList
       },
       onRemoveImage(index) {
         this.contactForm.images.splice(index, 1)
+        this.contactForm.imagesLocation.splice(index, 1)
       },
       onSuccDialogClose() {
         this.$refs.succDialog.doClose()

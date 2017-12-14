@@ -24,6 +24,8 @@
     },
     data () {
       return {
+        page: 1,
+        category: 0,
       }
     },
 

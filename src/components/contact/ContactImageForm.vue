@@ -5,9 +5,10 @@
       <div class="c-i-f-close" @click="onClose"></div>
     </div>
     <div style="overflow: hidden; margin: 22px 0 10px 0;">
-      <img v-for="(image, index) in imageList" :src="image" :key="index" class="image-prev" :style="marginRight(index)">
+      <img v-for="(image, index) in imageDataUrlList" :src="image" :key="index" class="image-prev" :style="marginRight(index)">
       <el-upload
         action="http://typany.com/api/revpic.php"
+        :headers="headerInfo"
         :on-success="onUploadSucc"
         :before-upload="beforeUpload"
         class="image-upload"
@@ -35,7 +36,13 @@
       return {
         url: '',
         isLoading: false,
-        imageList: ['https://www.sogou.com/web/index/images/logo_440x140.v.1.png', 'https://www.sogou.com/web/index/images/logo_440x140.v.1.png', 'https://www.sogou.com/web/index/images/logo_440x140.v.1.png', 'https://www.sogou.com/web/index/images/logo_440x140.v.1.png'],
+        imageList: [],
+        imageDataUrlList: [],
+        headerInfo: {
+          // 'Access-Control-Allow-Origin': 'http://typany.com/api/revpic.php',
+          // 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE',
+          // 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, X-File-Name, X-File-Size, X-File-Type',
+        }
       }
     },
 
@@ -50,7 +57,7 @@
           return
         
         this.$store.dispatch('CONTACT_CloseImageForm').then(() => {
-          this.$emit('imageSubmit', this.imageList)
+          this.$emit('imageSubmit', {imageList: this.imageList, imageDataUrlList: this.imageDataUrlList})
         })
       },
 
@@ -58,11 +65,21 @@
         this.$emit('closeConfirmImageForm')
       },
 
-      onUploadSucc(val) {
-        console.log(val)
+      onUploadSucc(response) {
+        if (response.code) {
+          this.$message.error(response.msg)
+          return
+        }
+        this.imageList.push(response.data)
       },
 
       beforeUpload(file) {
+        let reader = new FileReader()
+        reader.onload = (e) => {
+          this.imageDataUrlList.push(e.target.result)
+        }
+        reader.readAsDataURL(file)
+
         const isValidType = ['image/jpeg', 'image/jpg', 'image/png'].indexOf(file.type) !== -1
         const isLT5M = file.size / 1024 / 1024 < 5
 
@@ -72,9 +89,6 @@
           this.$message.error('Image size must less than 5MB')
         return isValidType && isLT5M
       },
-      onUpload(file) {
-        console.log(file)
-      }
     },
 
     created() {

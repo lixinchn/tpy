@@ -13,7 +13,9 @@ const service = axios.create({
 // request拦截器
 service.interceptors.request.use(config => {
   if (config.method.toLowerCase() === 'post') {
-    config.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+    // config.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+    // config.headers['Content-Type'] = 'multipart/form-data'
+    // config.headers['Access-Control-Allow-Origin'] = 'http://10.129.20.82:8080'
   }
   return config
 }, error => {
