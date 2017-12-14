@@ -5,7 +5,7 @@
       <div class="ai-desc">
         <p class="title">A.I TYPING</p>
         <desc-image-content v-for="(icon, index) in iconList" :imageSrc="icon" :desc="descList[index]" :key="index"></desc-image-content>
-        <a href="#" class="ai-btn"></a>
+        <a href="http://typany.com/api/go.php?id=1" class="ai-btn"></a>
       </div>
     </div>
     <div class="bg-component"></div>

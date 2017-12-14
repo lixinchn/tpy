@@ -5,7 +5,7 @@
         <p class="title">INNOVATION</p>
         <desc-image-content v-for="(icon, index) in iconList" :imageSrc="icon" :desc="descList[index]" :key="index">
         </desc-image-content>
-        <a href="#" class="effi-btn"></a>
+        <a href="http://typany.com/api/go.php?id=2" class="effi-btn"></a>
       </div>
       <img class="effi-show" src="/static/img/ios/left-hand.png">
     </div>

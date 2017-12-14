@@ -47,6 +47,11 @@
     },
 
     methods: {
+      refreshFormData() {
+        this.imageList = []
+        this.imageDataUrlList = []
+      },
+
       marginRight(index) {
         if ((index + 1) % 3 === 0)
           return {'margin-right': 0}
@@ -58,6 +63,7 @@
         
         this.$store.dispatch('CONTACT_CloseImageForm').then(() => {
           this.$emit('imageSubmit', {imageList: this.imageList, imageDataUrlList: this.imageDataUrlList})
+          this.refreshFormData()
         })
       },
 
@@ -95,11 +101,18 @@
     },
 
     computed: {
-      ...mapGetters([
-      ]),
+      ...mapGetters({
+        onCloseImageForm: 'closeImageForm',
+      }),
       uploadBtnShow() {
         return this.imageList.length >= 6 ? false : true
       },
+    },
+
+    watch: {
+      onCloseImageForm() {
+        this.refreshFormData()
+      }
     }
   }
 </script>

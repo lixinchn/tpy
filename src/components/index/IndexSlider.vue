@@ -5,10 +5,10 @@
       <p class="i-c-title">{{title}}</p>
       <div class="i-c-content-wrapper">
         <p class="i-c-content">{{content}}</p>
-        <img src="/static/img/index/fb.png" style="vertical-align: middle; margin-left: 18px;">
+        <a class="i-c-d-fb" href="http://typany.com/api/go.php?id=3"></a>
       </div>
-      <a class="i-c-d-button i-c-g-play"></a>
-      <a class="i-c-d-button i-c-a-store"></a>
+      <a class="i-c-d-button i-c-g-play" href="http://typany.com/api/go.php?id=1"></a>
+      <a class="i-c-d-button i-c-a-store" href="http://typany.com/api/go.php?id=2"></a>
     </div>
   </div>
 </template>
@@ -106,6 +106,15 @@
         &:active {
           background: url(/static/img/index/app-store-active.png) no-repeat;
         }
+      }
+
+      .i-c-d-fb {
+        background: url(/static/img/index/fb.png) no-repeat;
+        width: 33px;
+        height: 33px;
+        vertical-align: middle;
+        margin-left: 18px;
+        display: inline-block;
       }
     }
   }
