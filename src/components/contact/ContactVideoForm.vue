@@ -40,11 +40,11 @@
         this.isLoading = true
         const data = {url: this.url}
         this.$store.dispatch('CONTACT_GetYoutubeVideoInfo', createGetParams(data)).then((data) => {
+          this.isLoading = false
           if (data.code) {
             this.$message.error('error: ' + data.status)
             return
           }
-          this.isLoading = false
           console.log(data)
         }).catch(err => {
           this.$message.error(err)
