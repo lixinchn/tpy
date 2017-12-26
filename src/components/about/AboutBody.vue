@@ -73,7 +73,7 @@
     .banner {
       width: 100%;
       height: 255px;
-      background: url(/static/img/about/back1.png) no-repeat;
+      background: url(http://d2ezgnxmilyqe4.cloudfront.net/media/index/about-back1.png) no-repeat;
       background-size: 100% 100%;
       position: relative;
 
@@ -87,7 +87,7 @@
     }
 
     .b-bg {
-      background: url(/static/img/about/back2.png) no-repeat;
+      background: url(http://d2ezgnxmilyqe4.cloudfront.net/media/index/about-back2.png) no-repeat;
       width: 382px;
       height: 255px;
       position: absolute;

@@ -29,7 +29,7 @@
 
     methods: {
       onClick(id, thumbUrl) {
-        this.$router.push({path: 'blog/detail', query: {id: id, thumbSrc: encodeURIComponent(thumbUrl)}})
+        this.$router.push({path: 'blog/detail', query: {id: id}})
       }
     },
 

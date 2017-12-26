@@ -45,7 +45,7 @@
 <style lang="scss" scoped>
   .effi-wrapper {
     width: 100%;
-    background: url(/static/img/ios/bg1.png) no-repeat;
+    background: url(http://d2ezgnxmilyqe4.cloudfront.net/media/index/ios-bg1.png) no-repeat;
     position: relative;
 
     .effi-c-wrapper {

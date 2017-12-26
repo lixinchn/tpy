@@ -1,9 +1,9 @@
 <template>
   <div class="wrapper">
-    <img class="gallary" :src="thumbSrc" :style="{width: width}">
+    <img class="gallary" :src="blogInfo.bannerUrl" :style="{width: width}">
     <div class="content-wrapper" :style="{width: width}">
       <div style="width: 82%; float: left; min-height: 500px;">
-        <div v-html="content" class="blog-content"></div>
+        <div v-html="blogInfo.content" class="blog-content"></div>
       </div>
       <blog-tag style="width: 18%; float: left;"></blog-tag>
     </div>
@@ -23,15 +23,15 @@
         default: '100%',
       },
       blogId: {
-        type: String,
-      },
-      thumbSrc: {
-        type: String,
+        type: String || Number,
       },
     },
     data () {
       return {
-        content: '',
+        blogInfo: {
+          bannerUrl: '',
+          content: '',
+        },
       }
     },
 
@@ -43,7 +43,8 @@
             this.$message.error('error: ' + data.status)
             return
           }
-          this.content = decodeURIComponent(data.data)
+          this.blogInfo.bannerUrl = decodeURIComponent(data.data.bannerUrl)
+          this.blogInfo.content = decodeURIComponent(data.data.content)
         }).catch(err => {
           this.$message.error(err)
         })

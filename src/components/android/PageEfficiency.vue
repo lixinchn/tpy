@@ -43,7 +43,7 @@
 <style lang="scss" scoped>
   .effi-wrapper {
     width: 100%;
-    background: url(/static/img/android/bg4.png) no-repeat;
+    background: url(http://d2ezgnxmilyqe4.cloudfront.net/media/index/android-bg1.png) no-repeat;
     position: relative;
 
     .effi-c-wrapper {
