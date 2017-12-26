@@ -1,12 +1,13 @@
 <template>
-    <slider animation="normal" :interval="300000">
-      <slider-item v-for="(img, index) in imageList" :key="index">
-        <index-slider :img="img" :title="titleList[index]" :content="contnetList[index]" style="width: 100%;"></index-slider>
+    <slider animation="normal" :interval="5000">
+      <slider-item v-for="(slice, index) in sliceInfo" :key="index">
+        <index-slider :img="slice.bgUrl" :title="slice.title" :content="slice.subTitle" style="width: 100%;"></index-slider>
       </slider-item>
     </slider>
 </template>
 
 <script>
+  import {mapGetters} from 'vuex'
   import {Slider, SliderItem} from '../module/image-slider'
   import IndexSlider from './IndexSlider'
 
@@ -15,21 +16,29 @@
     components: {Slider, SliderItem, IndexSlider},
     data () {
       return {
-        imageList: ['/static/img/index/index-back-1.png', '/static/img/index/index-back-2.png', '/static/img/index/index-back-3.png'],
-        titleList: ['THE STORY POWERED BY YOU', 'TYPANY CREATORS', 'WHAT IS TYPING'],
-        contnetList: ['Express yourself without boundaries but Typany',
-                  'Have your own style with infinite creatives',
-                  'The A.I. technology on Typany is more than intelligence'],
       }
     },
 
     methods: {
+      getSliceInfo() {
+        this.$store.dispatch('INDEX_GetSliceInfo').then((data) => {
+          if (data.code) {
+            this.$message.error('error: ' + data.msg)
+            return
+          }
+          console.log(data)
+        })
+      }
     },
 
     created() {
+      this.getSliceInfo()
     },
 
     computed: {
+      ...mapGetters([
+        'sliceInfo',
+      ]),
     }
   }
 </script>
