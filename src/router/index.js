@@ -59,5 +59,11 @@ export default new Router({
       name: 'policy',
       component: Policy,
     },
-  ]
+  ],
+
+  scrollBehavior: (to, from, savedPosition) => {
+    return {x: 0, y: 0}
+  },
+
+  mode: 'history',
 })
