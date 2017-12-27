@@ -1,7 +1,7 @@
 <template>
   <div class="ai-wrapper" :style="{height: pageHeight}">
     <div class="ai-c-wrapper" :style="{width: width}">
-      <img class="ai-show" src="/static/img/android/ai.png">
+      <img class="ai-show" :src="typingGif">
       <div class="ai-desc">
         <p class="title">A.I TYPING</p>
         <desc-image-content v-for="(icon, index) in iconList" :imageSrc="icon" :desc="descList[index]" :key="index"></desc-image-content>
@@ -24,9 +24,10 @@
     data () {
       return {
         iconList: ['/static/img/android/ai-icon1.png', '/static/img/android/ai-icon2.png', '/static/img/android/ai-icon3.png'],
-        descList: ['Smart Voice Input & Power Translator',
+        descList: ['Powerful Translator & Smart Voice Input',
                    'Intelligent AutoCorrect and Prediction',
                    'Word/Slang/Phrase Learning that actually works'],
+        typingGif: 'https://d2ezgnxmilyqe4.cloudfront.net/media/index/ai-typing.gif?t=' + Date.now()
       }
     },
 
@@ -65,7 +66,7 @@
         position: absolute;
         top: 231px;
         left: 555px;
-        width: 500px;
+        width: 515px;
         .title {
           font-family: 'Arial MT Regular';
           font-size: 42px;
