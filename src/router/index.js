@@ -7,6 +7,8 @@ import Blog from '@/components/Blog'
 import BlogDetail from '@/components/BlogDetail'
 import About from '@/components/About'
 import Contact from '@/components/Contact'
+import Service from '@/components/Service'
+import Policy from '@/components/Policy'
 
 
 Vue.use(Router)
@@ -46,6 +48,16 @@ export default new Router({
       path: '/contact',
       name: 'contact',
       component: Contact,
+    },
+    {
+      path: '/service',
+      name: 'service',
+      component: Service,
+    },
+    {
+      path: '/policy',
+      name: 'policy',
+      component: Policy,
     },
   ]
 })
