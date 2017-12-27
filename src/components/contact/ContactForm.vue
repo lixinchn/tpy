@@ -52,7 +52,10 @@
           <div style="width: 100px; display: inline-block;" v-popover:popvideo><img src="/static/img/contact/video-icon.png"></div>
           <span style="position: relative; right: 35px;">video</span>
         </div>
-        <div class="b-c-btn" @click="onSubmit"></div>
+        <div :class="[!submitLoading ? 'b-c-btn-normal' : 'b-c-btn-loading', 'b-c-btn']" @click="onSubmit">
+          <div class="b-c-btn-left" :style="{width: submitLoadingWidth + 'px'}" v-show="submitLoading"></div>
+          <p style="margin: 0; z-index: 100; position: absolute; left: 0; right: 0;">Submit</p>
+        </div>
       </div>
     </form>
 
@@ -114,7 +117,10 @@
           images: [],
           imagesLocation: [],
           video: '',
-        }
+        },
+        submitLoading: false,
+        submitLoadingWidth: 8,
+        submitInterval: 0,
       }
     },
 
@@ -139,7 +145,14 @@
           pics: paramArrayToString(this.contactForm.imagesLocation),
           video: this.contactForm.video,
         }
+        this.submitLoading = true
+        this.calcSubmitLoadingWidth()
+
         this.$store.dispatch('CONTACT_Contact', createGetParams(data)).then((data) => {
+          this.submitLoadingWidth = 180
+          this.submitLoading = false
+          this.removeSubmitInterval()
+          this.submitLoadingWidth = 8
           if (data.code) {
             this.$message.error('error: ' + data.msg)
             return
@@ -148,6 +161,19 @@
           this.dialogSubmitSucc = true
           this.refreshContactForm()
         })
+        
+      },
+      calcSubmitLoadingWidth() {
+        this.submitInterval = setInterval(() => {
+          if (Math.random() * 133 < this.submitLoadingWidth)
+            return
+          if (this.submitLoadingWidth >= 130)
+            return
+          this.submitLoadingWidth++
+        }, 40)
+      },
+      removeSubmitInterval() {
+        clearInterval(this.submitInterval)
       },
       onVideoPopHide() {
         if (this.videoFormManualClose) {
@@ -265,15 +291,37 @@
     .b-c-btn {
       width: 133px;
       height: 40px;
+      line-height: 40px;
+      color: #fff;
       cursor: pointer;
       float: right;
-      background: url(/static/img/contact/submit.png) no-repeat;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .b-c-btn-normal {
+      background: #1aa0fc;
       &:hover {
-        background: url(/static/img/contact/submit-hover.png);
+        background: #37b6fc;
       }
       &:active {
-        background: url(/static/img/contact/submit-active.png);
+        background: #158adc;
       }
+    }
+
+    .b-c-btn-loading {
+      background: #88d4ff;
+    }
+
+    .b-c-btn-left {
+      background: #00a2ff;
+      height: 100%;
+      margin: 0;
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      border-radius: 4px;
     }
 
     .c-f-icon {
