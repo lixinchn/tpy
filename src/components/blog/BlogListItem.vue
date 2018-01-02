@@ -5,7 +5,7 @@
     <p class="title">{{blog.title}}</p>
     <!-- <p class="title">test test test test test test test test test test test test test test test test test test test test test test</p> -->
     <div class="detail">
-      <p>{{blog.pubTime}}</p>
+      <p>{{pubDate(blog.pubTime)}}</p>
       <img src="/static/img/blog/tag.png" style="vertical-align: middle; margin-left: 10px;">
       <p>{{blog.bucket}}</p>
       <img src="/static/img/blog/comment.png" style="vertical-align: middle; float: right;">
@@ -30,7 +30,10 @@
     methods: {
       onClick(id, thumbUrl) {
         this.$router.push({path: 'blog/detail', query: {id: id}})
-      }
+      },
+      pubDate(pubTime) {
+        return pubTime.substr(0, 10)
+      },
     },
 
     created() {

@@ -1,7 +1,7 @@
 <template>
   <div class="contact-wrapper" :style="{width: width}">
     <div class="c-banner-wrapper">
-      <img v-for="(banner, index) in banners" :key="index" :src="'/static/img/contact/' + banner">
+      <a v-for="(banner, index) in banners" :key="index" :href="banner.href"><img :src="'/static/img/contact/' + banner.img"></a>
     </div>
     <div class="c-content-wrapper">
       <p style="font-size: 24px; margin-bottom: 40px;">Join our community</p>
@@ -26,7 +26,9 @@
     },
     data () {
       return {
-        banners: ['contact-banner-1.png', 'contact-banner-2.png', 'contact-banner-3.png']
+        banners: [{img: 'contact-banner-1.png', href: 'mailto:typany.overseas@gmail.com'},
+                  {img: 'contact-banner-2.png', href: 'mailto:typany2016@gmail.com'},
+                  {img: 'contact-banner-3.png', href: '#'}]
       }
     },
 

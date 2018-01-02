@@ -8,8 +8,12 @@ const blog = {
     hasSearchResults: true,
   },
   mutations: {
-    SET_BLOG_LIST: (state, blogList) => {
-      state.blogList = blogList
+    SET_BLOG_LIST: (state, blogInfo) => {
+      if (blogInfo.append) {
+        state.blogList = [...state.blogList, ...blogInfo.list]
+      }
+      else
+        state.blogList = blogInfo.list
     },
     SET_HAS_SEARCH_RESULTS: (state, hasOrNot) => {
       state.hasSearchResults = hasOrNot
@@ -19,10 +23,11 @@ const blog = {
   actions: {
     // 获取 blog list
     BLOG_GetBlogList({commit}, data) {
+      const append = data.p >= 2
       return new Promise((resolve, reject) => {
-        BLOG_GetBlogList(data).then(response => {
+        BLOG_GetBlogList(data.data).then(response => {
           if (response.data.data.list)
-            commit('SET_BLOG_LIST', response.data.data.list)
+            commit('SET_BLOG_LIST', {list: response.data.data.list, append: append})
           resolve(response.data)
         })
       })
@@ -38,13 +43,14 @@ const blog = {
     },
 
     BLOG_SearchByKey({commit}, data) {
+      const append = data.p >= 2
       return new Promise((resolve, reject) => {
-        BLOG_SearchByKey(data).then(response => {
+        BLOG_SearchByKey(data.data).then(response => {
           if (response.data.data.list && response.data.data.list.length > 0) {
-            commit('SET_BLOG_LIST', response.data.data.list)
+            commit('SET_BLOG_LIST', {list: response.data.data.list, append: append})
             commit('SET_HAS_SEARCH_RESULTS', true)
           } else {
-            commit('SET_BLOG_LIST', [])
+            commit('SET_BLOG_LIST', {list: [], append: append})
             commit('SET_HAS_SEARCH_RESULTS', false)
           }
           resolve(response.data)
@@ -72,7 +78,7 @@ const blog = {
       return new Promise((resolve, reject) => {
         BLOG_GetRecommendingBlog(data).then(response => {
           if (response.data.data && response.data.data.length > 0) {
-            commit('SET_BLOG_LIST', response.data.data)
+            commit('SET_BLOG_LIST', {list: response.data.data, append: false})
           }
           resolve(response.data)
         })
