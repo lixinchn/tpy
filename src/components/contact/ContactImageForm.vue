@@ -61,10 +61,8 @@
         if (this.imageList.length === 0)
           return
         
-        this.$store.dispatch('CONTACT_CloseImageForm').then(() => {
-          this.$emit('imageSubmit', {imageList: this.imageList, imageDataUrlList: this.imageDataUrlList})
-          this.refreshFormData()
-        })
+        this.$emit('imageSubmit', {imageList: this.imageList, imageDataUrlList: this.imageDataUrlList})
+        this.$store.dispatch('CONTACT_CloseImageForm').then(() => {})
       },
 
       onClose() {

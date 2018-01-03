@@ -28,7 +28,7 @@
       return {
         banners: [{img: 'contact-banner-1.png', href: 'mailto:typany.overseas@gmail.com'},
                   {img: 'contact-banner-2.png', href: 'mailto:typany2016@gmail.com'},
-                  {img: 'contact-banner-3.png', href: '#'}]
+                  {img: 'contact-banner-3.png', href: 'https://www.surveymonkey.com/r/B7GNSFZ'}]
       }
     },
 

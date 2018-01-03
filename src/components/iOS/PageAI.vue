@@ -1,7 +1,7 @@
 <template>
   <div class="ai-wrapper" :style="{height: pageHeight}">
     <div class="ai-c-wrapper" :style="{width: width}">
-      <img class="ai-show" src="/static/img/ios/ai.png">
+      <img class="ai-show" :src="typingGif">
       <div class="ai-desc">
         <p class="title">A.I TYPING</p>
         <desc-image-content v-for="(icon, index) in iconList" :imageSrc="icon" :desc="descList[index]" :key="index"></desc-image-content>
@@ -25,6 +25,7 @@
         iconList: ['/static/img/ios/ai-icon1.png', '/static/img/ios/ai-icon2.png'],
         descList: ['Intelligent AutoCorrect and Prediction',
                    'Intelligent Word-Learning'],
+        typingGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/ai-typing-ios.gif?t=' + Date.now(),
       }
     },
 

@@ -27,7 +27,7 @@
         descList: ['Discover the world of pop culture - memes, TV, Movies, Music and more',
                    'Create Your Own Emoji with Build-in Emoji Maker'],
         fontColor: '#6b6b6b',
-        expGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/exp.gif?t=' + Date.now()
+        expGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/expression-android.gif?t=' + Date.now(),
       }
     },
 
