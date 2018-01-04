@@ -1,7 +1,7 @@
 <template>
   <div class="h-container" :style="{width: width}">
-    <span class="v-m-helper"></span><img src="/static/img/logo.png" class="v-m-content h-logo" @click="onGoToIndex">
-    <span class="v-m-helper"></span><img src="/static/img/typany.png" class="v-m-content h-title" @click="onGoToIndex">
+    <img src="/static/img/logo.png" class="v-m-content h-logo" @click="onGoToIndex">
+    <img src="/static/img/typany.png" class="v-m-content h-title" @click="onGoToIndex">
     <router-link to="/android" class="link h-link" style="margin-right: 65px;">Android</router-link>
     <router-link to="/ios" class="link h-link" style="margin-right: 54px;">iOS</router-link>
   </div>
@@ -43,14 +43,17 @@ export default {
 
     .v-m-content {
       cursor: pointer;
+      vertical-align: middle;
     }
 
     .h-logo {
       margin-left: 37px;
+      margin-top: 15px;
     }
 
     .h-title {
       margin-left: 21px;
+      margin-top: 15px;
     }
 
     .h-link {
