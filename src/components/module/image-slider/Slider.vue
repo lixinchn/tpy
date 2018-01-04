@@ -128,11 +128,22 @@
         this.jump(i)
         this.autoplay()
       },
+
+      visibilityListener() {
+        document.addEventListener("visibilitychange", () => {
+          if (document.visibilityState === 'hidden') {
+            this.timer && clearTimeout(this.timer)
+          } else {
+            this.autoplay()
+          }
+        })
+      },
     },
 
     created () {
       this.handleItemChange = throttle(this.updateItems, 100)
       this.jump = debounce(this.jump, this.speed + 100)
+      this.visibilityListener()
     },
 
     beforeMount () {
