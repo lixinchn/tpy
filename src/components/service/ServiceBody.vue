@@ -24,7 +24,7 @@
 
         <p class="subtitle">2.Prohibited Uses</p>
         <p style="margin-bottom: 10px;">Except as permitted by Clause 1, you may not:</p>
-        <p style="margin-bottom: 10px;">2.1. Use, copy, modify, transmit, adapt, vary or create derivative works based on the Software, the Products and/or the Services in whole or part.</p>
+        <p style="margin-bottom: 10px;">2.1 Use, copy, modify, transmit, adapt, vary or create derivative works based on the Software, the Products and/or the Services in whole or part.</p>
         <p style="margin-bottom: 10px;">2.2 Rent, lease, sub-license, display, perform, distribute, broadcast, sublicense, assign, sell or otherwise transfer or make available the Software, the Products and/or the Services, or any portions thereof, to any third party or allow any such item (or the Documentation relating thereto) to be accessed by or copied onto another person's device.</p>
         <p style="margin-bottom: 10px;">2.3 Translate, reverse engineer, decompile, or disassemble the Software, the Products and/or the Services; or use any access software system to search the data in the Software, the Products and/or the Services other than the Software, the Products and/or the Services provided under this Agreement.</p>
         <p style="margin-bottom: 10px;">2.4 Remove any proprietary notices or labels or any copyright management information (CMI) contained on, around or in the Software, the Products and/or the Services.</p>
