@@ -31,7 +31,6 @@
         default: '100%',
       },
       blogId: {
-        type: String,
       }
     },
     data () {

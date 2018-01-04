@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <img class="gallary" :src="blogInfo.bannerUrl" :style="{width: width}">
+    <img class="gallary" :src="blogInfo.bannerUrl" :style="{width: width}" v-if="blogInfo.bannerUrl">
     <div class="content-wrapper" :style="{width: width}">
       <div style="width: 82%; float: left; min-height: 500px;">
         <div v-html="blogInfo.content" class="blog-content"></div>
@@ -23,7 +23,6 @@
         default: '100%',
       },
       blogId: {
-        type: String || Number,
       },
     },
     data () {
