@@ -21,7 +21,7 @@ export default {
     },
     top: {
       type: String,
-      default: '-8px',
+      default: '0px',
     }
   },
   data () {

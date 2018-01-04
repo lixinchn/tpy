@@ -1,6 +1,6 @@
 <template>
   <div class="slider-wrapper">
-    <img :src="img" style="width: 100%;">
+    <img :src="img" style="width: 100%; position: relative; top: 4px;">
     <div class="content-wrapper">
       <p class="i-c-title">{{title}}</p>
       <div class="i-c-content-wrapper">
