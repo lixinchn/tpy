@@ -23,8 +23,8 @@
     </el-popover>
 
     <form v-model="contactForm" ref="contactForm">
-      <input type="text" style="" class="b-c-input" v-model.trim="contactForm.name" placeholder="Name">
-      <input type="text" style="" class="b-c-input" v-model.trim="contactForm.email" placeholder="Email">
+      <input type="text" style="" class="b-c-input" v-model.trim="contactForm.name" placeholder="Name*">
+      <input type="text" style="" class="b-c-input" v-model.trim="contactForm.email" placeholder="Email*">
       <input type="text" style="" class="b-c-input" v-model="contactForm.occupation" placeholder="Occupation">
       <div style="position: relative; width: 910px; margin: 0 auto;">
         <textarea style="margin-bottom: 8px;" :style="autoStyle" class="b-c-input" v-model="contactForm.comment" :placeholder="textAreaPlaceholder"></textarea>
@@ -44,15 +44,15 @@
         </div>
       </div>
       <div style="width: 912px; overflow: auto; margin: 0 auto">
-        <div class="c-f-icon">
-          <img src="/static/img/contact/image-icon.png" v-popover:popimage>
+        <div class="c-f-icon" v-popover:popimage>
+          <img src="/static/img/contact/image-icon.png">
           <span>image</span>
         </div>
-        <div class="c-f-icon">
-          <div style="width: 100px; display: inline-block;" v-popover:popvideo><img src="/static/img/contact/video-icon.png"></div>
+        <div class="c-f-icon" v-popover:popvideo>
+          <div style="width: 100px; display: inline-block;" ><img src="/static/img/contact/video-icon.png"></div>
           <span style="position: relative; right: 35px;">video</span>
         </div>
-        <div :class="[!submitLoading ? 'b-c-btn-normal' : 'b-c-btn-loading', 'b-c-btn']" @click="onSubmit">
+        <div :class="[!submitLoading ? 'b-c-btn-normal' : 'b-c-btn-loading', 'b-c-btn']" @click="onSubmit" :style="autoStyleSubmit">
           <div class="b-c-btn-left" :style="{width: submitLoadingWidth + 'px'}" v-show="submitLoading"></div>
           <p style="margin: 0; z-index: 100; position: absolute; left: 0; right: 0;">Submit</p>
         </div>
@@ -138,6 +138,9 @@
       },
 
       onSubmit() {
+        if (!this.contactForm.name || !this.contactForm.email)
+          return
+        
         const data = {
           name: this.contactForm.name,
           email: this.contactForm.email,
@@ -213,8 +216,8 @@
         this.$refs.dropDialog.doClose()
         this.$refs.dropDialog.hide()
       },
-      onCloseConfirmImageForm() {
-        this.dialogDrop = true
+      onCloseConfirmImageForm(listLength) {
+        listLength === 0 ? this.onDropYes() : this.dialogDrop = true
       },
       onDropYes() {
         this.$store.dispatch('CONTACT_CloseImageForm').then(() => {
@@ -249,6 +252,11 @@
         style['padding-top'] = paddingTop + 'px'
         return style
       },
+      autoStyleSubmit() {
+        if (!this.contactForm.name || !this.contactForm.email)
+          return {background: '#dbdbdb'}
+        return {}
+      },
       textAreaPlaceholder() {
         if (this.contactForm.images.length > 0 || this.textareaVideoInfo.title)
           return ''
@@ -282,7 +290,7 @@
       padding: 0 5px;
       margin-bottom: 20px;
       font-family: Helvetica;
-      color: #bcbcbc;
+      color: #454545;
       &::placeholder {
         color: #bcbcbc;
       }
@@ -329,6 +337,7 @@
       margin-right: 80px;
       margin-top: 5px;
       position: relative;
+      cursor: pointer;
 
       img {
         vertical-align: middle;

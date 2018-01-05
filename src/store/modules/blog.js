@@ -61,6 +61,7 @@ const blog = {
     BLOG_GetBlogInfo({commit}, data) {
       return new Promise((resolve, reject) => {
         BLOG_GetBlogInfo(data).then(response => {
+          commit('SET_HAS_SEARCH_RESULTS', true) // reset
           resolve(response.data)
         })
       })

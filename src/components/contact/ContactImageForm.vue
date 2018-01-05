@@ -1,5 +1,5 @@
 <template>
-  <div class="c-i-f-wrapper" :style="{height: height}">
+  <div class="c-i-f-wrapper" :style="autoStyle">
     <div style="overflow: auto;">
       <p style="float: left; margin: 0;">Upload local file</p>
       <div class="c-i-f-close" @click="onClose"></div>
@@ -27,10 +27,6 @@
   export default {
     name: 'contact-image-form',
     props: {
-      height: {
-        type: String,
-        default: '240px',
-      }
     },
     data () {
       return {
@@ -66,7 +62,7 @@
       },
 
       onClose() {
-        this.$emit('closeConfirmImageForm')
+        this.$emit('closeConfirmImageForm', this.imageList.length)
       },
 
       onUploadSucc(response) {
@@ -92,6 +88,13 @@
         else if (!isLT5M)
           this.$message.error('Image size must less than 5MB')
         return isValidType && isLT5M
+      },
+
+      autoStyle() {
+        let style = {}
+        style.height = this.imageList.length >= 3 ? '240px' : '160px'
+        style.height = '160px'
+        return style
       },
     },
 
@@ -145,6 +148,7 @@
       height: 58px;
       cursor: pointer;
       float: left;
+      margin-bottom: 12px;
 
       .icon {
         width: 58px;

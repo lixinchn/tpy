@@ -94,6 +94,7 @@
         cursor: pointer;
         margin-bottom: 12px;
         list-style: circle;
+        list-style-position: inside;
       }
 
       &:last-child {
