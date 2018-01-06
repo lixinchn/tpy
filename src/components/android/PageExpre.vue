@@ -6,7 +6,9 @@
         <desc-image-content v-for="(icon, index) in iconList" :imageSrc="icon" :desc="descList[index]" :key="index" :color="fontColor">
         </desc-image-content>
       </div>
-      <img class="exp-show" :src="expGif">
+      <lazy-component>
+        <img class="exp-show" v-lazy="expGif">
+      </lazy-component>
     </div>
     <div class="bg-component"></div>
   </div>

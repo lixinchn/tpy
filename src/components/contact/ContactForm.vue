@@ -27,7 +27,7 @@
       <input type="text" style="" class="b-c-input" v-model.trim="contactForm.email" placeholder="Email*">
       <input type="text" style="" class="b-c-input" v-model="contactForm.occupation" placeholder="Occupation">
       <div style="position: relative; width: 910px; margin: 0 auto;">
-        <textarea style="margin-bottom: 8px;" :style="autoStyle" class="b-c-input" v-model="contactForm.comment" :placeholder="textAreaPlaceholder"></textarea>
+        <div contenteditable style="margin-bottom: 8px;" :style="autoStyle" class="b-c-input" ref="comment" :placeholder="textAreaPlaceholder"></div>
 
         <div class="i-v-prev">
           <div style="width: 224px; overflow: hidden; padding-top: 12px;">
@@ -113,7 +113,6 @@
           name: '',
           email: '',
           occupation: '',
-          comment: '',
           images: [],
           imagesLocation: [],
           video: '',
@@ -127,10 +126,9 @@
     methods: {
       refreshContactForm() {
         this.contactForm = {
-          name: '',
-          email: '',
+          name: this.contactForm.name,
+          email: this.contactForm.email,
           occupation: '',
-          comment: '',
           images: [],
           imagesLocation: [],
           video: '',
@@ -140,11 +138,11 @@
       onSubmit() {
         if (!this.contactForm.name || !this.contactForm.email)
           return
-        
+
         const data = {
           name: this.contactForm.name,
           email: this.contactForm.email,
-          res: this.contactForm.comment,
+          res: this.$refs.comment.innerHTML,
           pics: paramArrayToString(this.contactForm.imagesLocation),
           video: this.contactForm.video,
         }
@@ -239,13 +237,14 @@
       ]),
       autoStyle() {
         let style = {}
-        style.height = (this.contactForm.images.length > 0 && this.textareaVideoInfo.title) ? '415px' : '215px'
+        style['min-height'] = '300px'
+        // style.height = (this.contactForm.images.length > 0 && this.textareaVideoInfo.title) ? '415px' : '215px'
         
         let paddingTop = 5
         if (this.contactForm.images.length > 0 && this.contactForm.images.length <= 3)
-          paddingTop += 80
+          paddingTop += 120
         else if (this.contactForm.images.length > 3)
-          paddingTop += 160
+          paddingTop += 240
 
         if (this.textareaVideoInfo.title)
           paddingTop += 110
@@ -285,12 +284,13 @@
       border-radius: 2px;
       width: 900px;
       max-width: 900px;
-      height: 32px;
+      min-height: 32px;
       font-size: 16px;
       padding: 0 5px;
       margin-bottom: 20px;
       font-family: Helvetica;
       color: #454545;
+      text-align: left;
       &::placeholder {
         color: #bcbcbc;
       }

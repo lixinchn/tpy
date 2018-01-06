@@ -1,7 +1,9 @@
 <template>
   <div class="ai-wrapper" :style="{height: pageHeight}">
     <div class="ai-c-wrapper" :style="{width: width}">
-      <img class="ai-show" :src="typingGif">
+      <lazy-component>
+        <img class="ai-show" v-lazy="typingGif">
+      </lazy-component>
       <div class="ai-desc">
         <p class="title">A.I TYPING</p>
         <desc-image-content v-for="(icon, index) in iconList" :imageSrc="icon" :desc="descList[index]" :key="index"></desc-image-content>
