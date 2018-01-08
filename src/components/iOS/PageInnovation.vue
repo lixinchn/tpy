@@ -61,7 +61,8 @@
         margin: 0 30px 0 0;
         display: inline-block;
         position: relative;
-        left: 150px;
+        left: 50px;
+        top: 50px;
       }
 
       .effi-desc {
@@ -75,6 +76,8 @@
           color: #fff;
           margin: 0 0 42px 0;
           text-align: center;
+          position: relative;
+          left: -33px;
         }
 
         .effi-btn {
@@ -83,6 +86,8 @@
           width: 258px;
           height: 75px;
           background: url(/static/img/ios/ios-btn.png) no-repeat;
+          position: relative;
+          left: -38px;
           &:hover {
             background: url(/static/img/ios/ios-btn-hover.png);
           }
@@ -94,8 +99,8 @@
     }
     .bg-component {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 70px;
+      left: -145px;
       width: 100%;
       height: 100%;
       background: url(/static/img/ios/1.png) no-repeat;

@@ -1,7 +1,7 @@
 <template>
   <div class="desc-wrapper">
-    <img :src="imageSrc">
-    <p :style="{color: color}">{{desc}}</p>
+    <img :src="imageSrc" :style="autoStyleIcon">
+    <p :style="autoStyle">{{desc}}</p>
   </div>
 </template>
 
@@ -19,6 +19,14 @@
         type: String,
         default: '#fff',
       },
+      left: {
+        type: String,
+        default: '0px',
+      },
+      iconLeft: {
+        type: String,
+        default: '0px',
+      },
     },
     data () {
       return {
@@ -32,6 +40,19 @@
     },
 
     computed: {
+      autoStyle() {
+        return {
+          color: this.color,
+          position: 'relative',
+          left: this.left,
+        }
+      },
+      autoStyleIcon() {
+        return {
+          position: 'relative',
+          left: this.iconLeft,
+        }
+      },
     }
   }
 </script>
@@ -41,8 +62,6 @@
     width: 100%;
 
     img {
-      width: 56px;
-      height: 56px;
       vertical-align: top;
       float: left;
       margin-right: 23px;

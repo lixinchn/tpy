@@ -3,7 +3,7 @@
     <div class="exp-c-wrapper" :style="{width: width}">
       <div class="exp-desc">
         <p class="title">EXPRESSION</p>
-        <desc-image-content v-for="(icon, index) in iconList" :imageSrc="icon" :desc="descList[index]" :key="index" :color="fontColor">
+        <desc-image-content v-for="(icon, index) in iconList" :imageSrc="icon" :desc="descList[index].desc" :key="index" :color="fontColor" :left="descList[index].left">
         </desc-image-content>
       </div>
       <lazy-component>
@@ -26,8 +26,8 @@
     data () {
       return {
         iconList: ['/static/img/ios/exp-icon1.png', '/static/img/ios/exp-icon2.png'],
-        descList: ['Discover the world of pop culture - memes, TV, Movies, Music and more',
-                   'Create Your Own Emoji with Build-in Emoji Maker'],
+        descList: [{desc: 'Discover the world of pop culture - memes, TV, Movies, Music and more', left: '0px'},
+                   {desc: 'Create Your Own Emoji with Build-in Emoji Maker', left: '-8px'}],
         fontColor: '#6b6b6b',
         expGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/expression-ios.gif?t=' + Date.now(),
       }
@@ -48,6 +48,7 @@
   .exp-wrapper {
     width: 100%;
     position: relative;
+    background: #f9f8fb;
 
     .exp-c-wrapper {
       z-index: 10;
@@ -57,11 +58,11 @@
       position: relative;
 
       .exp-show {
-        width: 666px;
-        height: 869px;
+        height: 777px;
         display: inline-block;
         position: relative;
-        left: 150px;
+        left: 70px;
+        top: 45px;
       }
 
       .exp-desc {
@@ -75,13 +76,15 @@
           color: #6b6b6b;
           margin: 0 0 42px 0;
           text-align: center;
+          position: relative;
+          left: -45px;
         }
       }
     }
     .bg-component {
       position: absolute;
       top: 0;
-      left: 0;
+      left: -200px;
       width: 100%;
       height: 100%;
       background: url(/static/img/ios/3.png) no-repeat;

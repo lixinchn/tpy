@@ -10,7 +10,7 @@
         <a href="http://typany.com/api/go.php?id=1" class="ai-btn"></a>
       </div>
     </div>
-    <div class="bg-component"></div>
+    <img class="bg-component" src="/static/img/android/1.png" :style="{'max-height': pageHeight}"></img>
   </div>
 </template>
 
@@ -75,6 +75,8 @@
           color: #fff;
           margin: 0 0 42px 0;
           text-align: center;
+          position: relative;
+          left: -67px;
         }
         .ai-btn {
           display: block;
@@ -96,8 +98,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
-      background: url(/static/img/android/1.png) no-repeat;
+      z-index: 0;
     }
   }
 </style>

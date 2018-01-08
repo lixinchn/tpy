@@ -63,7 +63,7 @@
       .per-desc {
         position: absolute;
         top: 160px;
-        left: 590px;
+        left: 600px;
         width: 500px;
         .title {
           font-family: 'Arial MT Regular';
@@ -71,13 +71,15 @@
           color: #6b6b6b;
           margin: 0 0 42px 0;
           text-align: center;
+          position: relative;
+          left: 24px;
         }
       }
     }
     .bg-component {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: -15px;
+      left: -125px;
       width: 100%;
       height: 100%;
       background: url(/static/img/ios/2.png) no-repeat;

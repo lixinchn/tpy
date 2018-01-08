@@ -60,6 +60,8 @@
         height: 774px;
         margin: 0px 105px 0px 45px;
         display: inline-block;
+        position: relative;
+        top: 20px;
       }
 
       .ai-desc {
@@ -73,6 +75,8 @@
           color: #fff;
           margin: 0 0 42px 0;
           text-align: center;
+          position: relative;
+          left: -60px;
         }
       }
     }

@@ -1,8 +1,8 @@
 <template>
   <div class="a-b-wrapper">
-    <page-innovation :width="width" :pageHeight="pageHeight"></page-innovation>
-    <page-personalization :width="width" :pageHeight="pageHeight"></page-personalization>
-    <page-expression :width="width" :pageHeight="pageHeight"></page-expression>
+    <page-innovation :width="width" :pageHeight="pageHeightInnovation"></page-innovation>
+    <page-personalization :width="width" :pageHeight="pageHeightPersonalization"></page-personalization>
+    <page-expression :width="width" :pageHeight="pageHeightExp"></page-expression>
     <page-a-i :width="width" :pageHeight="pageHeight"></page-a-i>
     <PageAPPStore></PageAPPStore>
   </div>
@@ -26,7 +26,19 @@
       pageHeight: {
         type: String,
         default: '880px',
-      }
+      },
+      pageHeightInnovation: {
+        type: String,
+        default: '1027px',
+      },
+      pageHeightPersonalization: {
+        type: String,
+        default: '878px',
+      },
+      pageHeightExp: {
+        type: String,
+        default: '882px',
+      },
     },
     data () {
       return {

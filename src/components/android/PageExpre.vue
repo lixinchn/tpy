@@ -3,7 +3,7 @@
     <div class="exp-c-wrapper" :style="{width: width}">
       <div class="exp-desc">
         <p class="title">EXPRESSION</p>
-        <desc-image-content v-for="(icon, index) in iconList" :imageSrc="icon" :desc="descList[index]" :key="index" :color="fontColor">
+        <desc-image-content v-for="(icon, index) in iconList" :imageSrc="icon.icon" :iconLeft="icon.iconLeft" :desc="descList[index].desc" :key="index" :color="fontColor" :left="descList[index].left">
         </desc-image-content>
       </div>
       <lazy-component>
@@ -25,9 +25,10 @@
     },
     data () {
       return {
-        iconList: ['/static/img/android/exp-icon1.png', '/static/img/android/exp-icon2.png'],
-        descList: ['Discover the world of pop culture - memes, TV, Movies, Music and more',
-                   'Create Your Own Emoji with Build-in Emoji Maker'],
+        iconList: [{icon: '/static/img/android/exp-icon1.png', iconLeft: '11px'},
+                   {icon: '/static/img/android/exp-icon2.png', iconLeft: '0px'}],
+        descList: [{desc: 'Discover the world of pop culture - memes, TV, Movies, Music and more', left: '15px'},
+                   {desc: 'Create Your Own Emoji with Build-in Emoji Maker', left: '-6px'}],
         fontColor: '#6b6b6b',
         expGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/expression-android.gif?t=' + Date.now(),
       }
@@ -61,7 +62,7 @@
         height: 869px;
         display: inline-block;
         position: relative;
-        left: 150px;
+        left: 70px;
       }
 
       .exp-desc {
@@ -75,6 +76,8 @@
           color: #6b6b6b;
           margin: 0 0 42px 0;
           text-align: center;
+          position: relative;
+          left: -30px;
         }
       }
     }

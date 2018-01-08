@@ -45,6 +45,7 @@
   .per-wrapper {
     width: 100%;
     position: relative;
+    background: #f9f8fb;
 
     .per-c-wrapper {
       z-index: 10;
@@ -71,6 +72,8 @@
           color: #6b6b6b;
           margin: 0 0 42px 0;
           text-align: center;
+          position: relative;
+          left: 24px;
         }
       }
     }

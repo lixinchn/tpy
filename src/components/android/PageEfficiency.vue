@@ -3,7 +3,7 @@
     <div class="effi-c-wrapper" :style="{width: width}">
       <div class="effi-desc">
         <p class="title">EFFICIENCY</p>
-        <desc-image-content v-for="(icon, index) in iconList" :imageSrc="icon" :desc="descList[index]" :key="index">
+        <desc-image-content v-for="(icon, index) in iconList" :imageSrc="icon.icon" :iconLeft="icon.iconLeft" :desc="descList[index]" :key="index">
         </desc-image-content>
       </div>
       <img class="effi-show" src="/static/img/android/efficiency.png">
@@ -23,7 +23,8 @@
     },
     data () {
       return {
-        iconList: ['/static/img/android/effi-icon1.png', '/static/img/android/effi-icon2.png'],
+        iconList: [{icon: '/static/img/android/effi-icon1.png', iconLeft: '0px'},
+                   {icon: '/static/img/android/effi-icon2.png', iconLeft: '-3px'}],
         descList: ['Convenient Emoji Prediction, Based on What You\'ve Just Typed',
                    'Simply swipe-to-type with Typany'],
       }
@@ -73,6 +74,8 @@
           color: #fff;
           margin: 0 0 42px 0;
           text-align: center;
+          position: relative;
+          left: -48px;
         }
       }
     }
