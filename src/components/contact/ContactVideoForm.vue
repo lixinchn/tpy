@@ -63,7 +63,7 @@
       },
 
       onSubmit() {
-        if (!this.youtubeVideoInfo.title)
+        if (!this.youtubeVideoInfo.title && !this.url)
           return
         
         this.$store.dispatch('CONTACT_SetTextareaVideoInfo').then(() => {

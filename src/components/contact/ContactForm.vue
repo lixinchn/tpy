@@ -38,9 +38,14 @@
               <div class="c-v-f-close" @click="onRemoveImage(index)"></div>
             </div>
           </div>
-          <div class="youtube-video-info" v-show="textareaVideoInfo.title">
-            <img :src="textareaVideoInfo.thumbnails ? textareaVideoInfo.thumbnails.default.url : ''" style="width: 48%; height: 100%; display: inline-block;">
-            <p style="width: 48%; height: 100%; overflow: hidden; display: inline-block; margin: 0;">{{textareaVideoInfo.title}}</p>
+          <div class="youtube-video-info" v-show="textareaVideoInfo.title || contactForm.video">
+            <div v-show="textareaVideoInfo.title">
+              <img :src="textareaVideoInfo.thumbnails ? textareaVideoInfo.thumbnails.default.url : ''" style="width: 48%; height: 100%; display: inline-block;">
+              <p style="width: 48%; height: 100%; overflow: hidden; display: inline-block; margin: 0;">{{textareaVideoInfo.title}}</p>
+            </div>
+            <div v-show="contactForm.video" style="padding: 2px; overflow: hidden; height: 100%;">
+              <a :href="contactForm.video" target="blank">{{contactForm.video}}</a>
+            </div>
             <div class="c-v-f-close" @click="onRemoveVideo"></div>
           </div>
         </div>
@@ -268,7 +273,7 @@
         else if (this.contactForm.images.length > 3)
           paddingTop += 240
 
-        if (this.textareaVideoInfo.title)
+        if (this.textareaVideoInfo.title || this.contactForm.video)
           paddingTop += 110
         style['padding-top'] = paddingTop + 'px'
         return style
