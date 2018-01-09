@@ -8,7 +8,7 @@
       <p style="float: left; margin: 0;" class="c-v-f-t">Add links from</p>
       <div class="c-v-f-youtube"></div>
     </div>
-    <input v-model="url" class="c-v-f-input" placeholder="URL: http://" @change="onGetYoutubeInfo">
+    <input v-model="url" class="c-v-f-input" placeholder="URL: http://" @input="onGetYoutubeInfo">
     <div style="text-align: center;" v-show="isLoading"><img src="/static/img/contact/loading.gif"></div>
     <div style="height: 80px; margin-top: 12px; border: 1px solid #ccc;" v-show="youtubeVideoInfo.title">
       <img :src="youtubeVideoInfo.thumbnails ? youtubeVideoInfo.thumbnails.default.url : ''" style="width: 48%; height: 100%; display: inline-block;">
@@ -29,11 +29,22 @@
       return {
         url: '',
         isLoading: false,
+        pause: false,
       }
     },
 
     methods: {
       onGetYoutubeInfo() {
+        if (this.pause)
+          return
+        this.getYoutubeInfo()
+        setTimeout(() => {
+          this.pause = false
+        }, 500)
+        this.pause = true
+      },
+
+      getYoutubeInfo() {
         if (!this.url)
           return
 
@@ -55,8 +66,8 @@
         if (!this.youtubeVideoInfo.title)
           return
         
-        this.$store.dispatch('CONTACT_CloseVideoForm').then(() => {
-          this.$store.dispatch('CONTACT_SetTextareaVideoInfo').then(() => {
+        this.$store.dispatch('CONTACT_SetTextareaVideoInfo').then(() => {
+          this.$store.dispatch('CONTACT_CloseVideoForm').then(() => {
             this.$emit('videoSubmit', this.url)
             this.url = ''
           })
@@ -65,6 +76,7 @@
 
       onClose() {
         this.$store.dispatch('CONTACT_CloseVideoForm').then(() => {
+          this.url = ''
         })
       },
     },

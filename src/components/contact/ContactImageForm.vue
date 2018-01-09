@@ -76,14 +76,14 @@
 
       beforeUpload(file) {
         const isValidType = ['image/jpeg', 'image/jpg', 'image/png'].indexOf(file.type) !== -1
-        const isLT5M = file.size / 1024 / 1024 < 5
+        const isLT2M = file.size / 1024 / 1024 < 2
 
         if (!isValidType)
           this.$message.error('Only JPG and PNG image supported')
-        else if (!isLT5M)
-          this.$message.error('Image size must less than 5MB')
+        else if (!isLT2M)
+          this.$message.error('Image size must less than 2MB')
 
-        if (isValidType && isLT5M) {
+        if (isValidType && isLT2M) {
           let reader = new FileReader()
           reader.onload = (e) => {
             if (this.imageDataUrlList.length >= 5)
@@ -92,7 +92,7 @@
           }
           reader.readAsDataURL(file)
         }
-        return isValidType && isLT5M
+        return isValidType && isLT2M
       },
 
       autoStyle() {

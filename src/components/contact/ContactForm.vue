@@ -7,6 +7,7 @@
       trigger="click"
       class="popvideo"
       @hide="onVideoPopHide"
+      @show="onVideoPopShow"
     >
       <contact-video-form v-on:videoSubmit="onVideoSubmit"></contact-video-form>
     </el-popover>
@@ -18,6 +19,7 @@
       trigger="click"
       class="popimage"
       @hide="onImagePopHide"
+      @show="onImagePopShow"
     >
       <contact-image-form v-on:imageSubmit="onImageSubmit" v-on:closeConfirmImageForm="onCloseConfirmImageForm"></contact-image-form>
     </el-popover>
@@ -120,6 +122,8 @@
         submitLoading: false,
         submitLoadingWidth: 8,
         submitInterval: 0,
+        popImageShow: false,
+        popVideoShow: false,
       }
     },
 
@@ -179,6 +183,7 @@
       onVideoPopHide() {
         if (this.videoFormManualClose) {
           this.videoFormManualClose = false
+          this.popVideoShow = false
           return
         }
         this.$refs.popvideo.doShow()
@@ -194,6 +199,7 @@
       onImagePopHide() {
         if (this.imageFormManualClose) {
           this.imageFormManualClose = false
+          this.popImageShow = false
           return
         }
         this.$refs.popimage.doShow()
@@ -222,6 +228,22 @@
           this.onDropClose()
         })
       },
+      onImagePopShow() {
+        if (this.popVideoShow) {
+          this.imageFormManualClose = true
+          this.$refs.popimage.doClose()
+          return
+        }
+        this.popImageShow = true
+      },
+      onVideoPopShow() {
+        if (this.popImageShow) {
+          this.videoFormManualClose = true
+          this.$refs.popvideo.doClose()
+          return
+        }
+        this.popVideoShow = true
+      }
     },
 
     created() {

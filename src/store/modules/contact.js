@@ -15,6 +15,7 @@ const contact = {
 
     SET_CLOSE_VIDEO_FORM: (state) => {
       state.closeVideoForm = !state.closeVideoForm
+      state.youtubeVideoInfo = {}
     },
     SET_TEXTAREA_VIDEO_INFO: (state) => {
       state.textareaVideoInfo = state.youtubeVideoInfo
