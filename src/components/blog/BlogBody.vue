@@ -29,18 +29,19 @@
         keyPage: 1,
         category: 0,
         noMoreBlog: false,
-        pending: false,
+        pending: true,
         tag: '',
       }
     },
 
     methods: {
       getBlogList() {
+        this.category = this.$route.query.category || 0
         const data = {cat: this.category, p: this.page}
         this.$store.dispatch('BLOG_GetBlogList', {data: createGetParams(data), p: this.page}).then((data) => {
           this.pending = false
           if (data.code) {
-            this.$message.error('error: ' + data.status)
+            this.$message.error('error: ' + data.msg)
             return
           }
           console.log(data)
@@ -56,7 +57,7 @@
         this.$store.dispatch('BLOG_SearchByKey', {data: createGetParams(data), p: this.keyPage}).then((data) => {
           this.pending = false
           if (data.code) {
-            this.$message.error('error: ' + data.status)
+            this.$message.error('error: ' + data.msg)
             return
           }
           console.log(data)

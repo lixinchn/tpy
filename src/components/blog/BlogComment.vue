@@ -61,7 +61,7 @@
         }
         this.$store.dispatch('BLOG_Comment', createGetParams(data)).then((data) => {
           if (data.code) {
-            this.$message.error('error: ' + data.status)
+            this.$message.error('error: ' + data.msg)
             return
           }
           this.$message({

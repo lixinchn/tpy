@@ -6,7 +6,7 @@
     </div>
 
     <div class="tag-list">
-      <li v-for="tag in tagList" @click="onSearch(tag.title)">{{tag.title}}</li>
+      <li v-for="tag in tagList" @click="onTag(tag.id)">{{tag.title + '(' + tag.count + ')'}}</li>
     </div>
   </div>
 </template>
@@ -47,6 +47,11 @@
         this.$router.push({path: '/blog', query: {tag: searchKey}})
         location.reload()
       },
+
+      onTag(id) {
+        this.$router.push({path: '/blog', query: {category: id}})
+        location.reload()
+      }
     },
 
     created() {

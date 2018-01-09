@@ -13,7 +13,7 @@ const blog = {
         state.blogList = [...state.blogList, ...blogInfo.list]
       }
       else
-        state.blogList = blogInfo.list
+        state.blogList = [...blogInfo.list]
     },
     SET_HAS_SEARCH_RESULTS: (state, hasOrNot) => {
       state.hasSearchResults = hasOrNot
@@ -26,6 +26,7 @@ const blog = {
       const append = data.p >= 2
       return new Promise((resolve, reject) => {
         BLOG_GetBlogList(data.data).then(response => {
+          commit('SET_HAS_SEARCH_RESULTS', true) // reset
           if (response.data.data.list)
             commit('SET_BLOG_LIST', {list: response.data.data.list, append: append})
           resolve(response.data)

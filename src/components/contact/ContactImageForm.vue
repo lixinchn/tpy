@@ -38,7 +38,8 @@
           // 'Access-Control-Allow-Origin': 'http://typany.com/api/revpic.php',
           // 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE',
           // 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, X-File-Name, X-File-Size, X-File-Type',
-        }
+        },
+        uploadBtnShow: true,
       }
     },
 
@@ -74,12 +75,6 @@
       },
 
       beforeUpload(file) {
-        let reader = new FileReader()
-        reader.onload = (e) => {
-          this.imageDataUrlList.push(e.target.result)
-        }
-        reader.readAsDataURL(file)
-
         const isValidType = ['image/jpeg', 'image/jpg', 'image/png'].indexOf(file.type) !== -1
         const isLT5M = file.size / 1024 / 1024 < 5
 
@@ -87,6 +82,16 @@
           this.$message.error('Only JPG and PNG image supported')
         else if (!isLT5M)
           this.$message.error('Image size must less than 5MB')
+
+        if (isValidType && isLT5M) {
+          let reader = new FileReader()
+          reader.onload = (e) => {
+            if (this.imageDataUrlList.length >= 5)
+              this.uploadBtnShow = false
+            this.imageDataUrlList.push(e.target.result)
+          }
+          reader.readAsDataURL(file)
+        }
         return isValidType && isLT5M
       },
 
@@ -105,9 +110,6 @@
       ...mapGetters({
         onCloseImageForm: 'closeImageForm',
       }),
-      uploadBtnShow() {
-        return this.imageList.length >= 6 ? false : true
-      },
     },
 
     watch: {
