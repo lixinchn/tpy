@@ -36,11 +36,11 @@ export default {
     margin: auto;
 
     &:hover {
-      background: url(/static/img/android/bottom-btn-hover.png) no-repeat;
+      background-position: -390px 0;
     }
 
     &:active {
-      background: url(/static/img/android/bottom-btn-active.png) no-repeat;
+      background-position: -780px 0;
     }
   }
 </style>

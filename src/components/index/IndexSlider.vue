@@ -88,11 +88,11 @@
         background: url(/static/img/index/google-play.png) no-repeat;
 
         &:hover {
-          background: url(/static/img/index/google-play-hover.png) no-repeat;
+          background-position: -170px 0;
         }
 
         &:active {
-          background: url(/static/img/index/google-play-active.png) no-repeat;
+          background-position: -340px 0;
         }
       }
 
@@ -100,11 +100,11 @@
         background: url(/static/img/index/app-store.png) no-repeat;
 
         &:hover {
-          background: url(/static/img/index/app-store-hover.png) no-repeat;
+          background-position: -170px 0;
         }
 
         &:active {
-          background: url(/static/img/index/app-store-active.png) no-repeat;
+          background-position: -340px 0;
         }
       }
 

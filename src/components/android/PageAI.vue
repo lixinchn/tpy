@@ -81,14 +81,14 @@
         .ai-btn {
           display: block;
           margin: 38px auto 0 auto;
-          width: 258px;
+          width: 256px;
           height: 75px;
           background: url(/static/img/android/google-play.png) no-repeat;
           &:hover {
-            background: url(/static/img/android/google-play-hover.png);
+            background-position: -256px 0;
           }
           &:active {
-            background: url(/static/img/android/google-play-active.png);
+            background-position: -512px 0;
           }
         }
       }

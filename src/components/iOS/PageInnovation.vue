@@ -83,16 +83,16 @@
         .effi-btn {
           display: block;
           margin: 38px auto 0 auto;
-          width: 258px;
+          width: 257px;
           height: 75px;
           background: url(/static/img/ios/ios-btn.png) no-repeat;
           position: relative;
           left: -38px;
           &:hover {
-            background: url(/static/img/ios/ios-btn-hover.png);
+            background-position: -257px 0;
           }
           &:active {
-            background: url(/static/img/ios/ios-btn-active.png);
+            background-position: -514px 0;
           }
         }
       }

@@ -142,10 +142,10 @@
       float: right;
       background: url(/static/img/blog/btn.png) no-repeat;
       &:hover {
-        background: url(/static/img/blog/btn-hover.png);
+        background-position: -133px 0;
       }
       &:active {
-        background: url(/static/img/blog/btn-active.png);
+        background-position: -266px 0;
       }
     }
   }

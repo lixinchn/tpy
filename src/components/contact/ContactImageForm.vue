@@ -176,16 +176,17 @@
     .c-v-f-btn-normal {
       cursor: pointer;
       background: url(/static/img/contact/ok.png) no-repeat;
+      background-position: -87px 0;
       &:hover {
-        background: url(/static/img/contact/ok-hover.png) no-repeat;
+        background-position: -174px 0;
       }
       &:active {
-        background: url(/static/img/contact/ok-active.png) no-repeat;
+        background-position: -261px 0;
       }
     }
 
     .c-v-f-btn-disabled {
-      background: url(/static/img/contact/ok-disabled.png) no-repeat;
+      background: url(/static/img/contact/ok.png) no-repeat;
     }
   }
 </style>

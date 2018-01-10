@@ -481,19 +481,19 @@
       margin-right: 24px;
       background: url(/static/img/contact/drop-yes.png) no-repeat;
       &:hover {
-        background: url(/static/img/contact/drop-yes-hover.png);
+        background-position: -87px 0;
       }
       &:active {
-        background: url(/static/img/contact/drop-yes-active.png);
+        background-position: -174px 0;
       }
     }
     .d-d-btn-no {
       background: url(/static/img/contact/drop-no.png) no-repeat;
       &:hover {
-        background: url(/static/img/contact/drop-no-hover.png);
+        background-position: -87px 0;
       }
       &:active {
-        background: url(/static/img/contact/drop-no-active.png);
+        background-position: -174px 0;
       }
     }
   }
