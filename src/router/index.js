@@ -62,6 +62,8 @@ export default new Router({
   ],
 
   scrollBehavior: (to, from, savedPosition) => {
+    if (from.name === 'blogDetail' && to.name === 'blog')
+      location.reload()
     return {x: 0, y: 0}
   },
 
