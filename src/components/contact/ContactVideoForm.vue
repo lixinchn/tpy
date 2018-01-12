@@ -1,11 +1,11 @@
 <template>
   <div class="c-v-f-wrapper">
     <div style="overflow: auto;">
-      <p style="float: left; margin: 0;">Video</p>
+      <p style="float: left; margin: 0; font-family: Helvetica; font-size: 14px;">Video</p>
       <div class="c-v-f-close" @click="onClose"></div>
     </div>
     <div style="overflow: auto; margin-top: 20px;">
-      <p style="float: left; margin: 0;" class="c-v-f-t">Add links from</p>
+      <p style="float: left; margin: 0; font-size: 18px;" class="c-v-f-t">Add links from</p>
       <div class="c-v-f-youtube"></div>
     </div>
     <input v-model="url" class="c-v-f-input" placeholder="URL: http://" @input="onGetYoutubeInfo">
@@ -130,7 +130,7 @@
     .c-v-f-input {
       width: calc(100% - 2px);
       height: 26px;
-      margin-top: 10px;
+      margin-top: 6px;
       border: 1px solid #ccc;
       &::placeholder {
         color: #bcbcbc;
@@ -148,16 +148,17 @@
     .c-v-f-btn-normal {
       cursor: pointer;
       background: url(/static/img/contact/ok.png) no-repeat;
+      background-position: -87px 0;
       &:hover {
-        background: url(/static/img/contact/ok-hover.png) no-repeat;
+        background-position: -174px 0;
       }
       &:active {
-        background: url(/static/img/contact/ok-active.png) no-repeat;
+        background-position: -261px 0;
       }
     }
 
     .c-v-f-btn-disabled {
-      background: url(/static/img/contact/ok-disabled.png) no-repeat;
+      background: url(/static/img/contact/ok.png) no-repeat;
     }
   }
 </style>

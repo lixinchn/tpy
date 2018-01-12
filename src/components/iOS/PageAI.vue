@@ -24,8 +24,9 @@
     },
     data () {
       return {
-        iconList: ['/static/img/ios/ai-icon1.png', '/static/img/ios/ai-icon2.png'],
-        descList: ['Intelligent AutoCorrect and Prediction',
+        iconList: ['/static/img/ios/ai-icon3.png', '/static/img/ios/ai-icon1.png', '/static/img/ios/ai-icon2.png'],
+        descList: ['Real-Time Translation Built in',
+                   'Intelligent AutoCorrect and Prediction',
                    'Intelligent Word-Learning'],
         typingGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/ai-typing-ios.gif?t=' + Date.now(),
       }

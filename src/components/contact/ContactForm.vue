@@ -39,11 +39,11 @@
             </div>
           </div>
           <div class="youtube-video-info" v-show="textareaVideoInfo.title || contactForm.video">
-            <div v-show="textareaVideoInfo.title">
+            <div v-show="textareaVideoInfo.title" style="height: 100%;">
               <img :src="textareaVideoInfo.thumbnails ? textareaVideoInfo.thumbnails.default.url : ''" style="width: 48%; height: 100%; display: inline-block;">
-              <p style="width: 48%; height: 100%; overflow: hidden; display: inline-block; margin: 0;">{{textareaVideoInfo.title}}</p>
+              <p style="width: 48%; overflow: hidden; display: inline-block; margin: 0; font-size: 14px; vertical-align: top; margin-top: 5px; height: 60px;">{{textareaVideoInfo.title}}</p>
             </div>
-            <div v-show="contactForm.video" style="padding: 2px; overflow: hidden; height: 100%;">
+            <div v-show="!textareaVideoInfo.title && contactForm.video" style="padding: 2px; overflow: hidden; height: 100%;">
               <a :href="contactForm.video" target="blank">{{contactForm.video}}</a>
             </div>
             <div class="c-v-f-close" @click="onRemoveVideo"></div>
@@ -73,8 +73,8 @@
       customClass="dialog-submit-succ">
       <div class="d-s-back">
         <img src="/static/img/contact/contact-succ.png" style="margin-top: 40px;">
-        <p>Your Feedback is Highly</p>
-        <p>Appreciated!</p>
+        <p style="margin: 16px auto 5px auto;">Your Feedback is Highly</p>
+        <p style="margin: 0;">Appreciated!</p>
         <div class="c-i-f-close" @click="onSuccDialogClose"></div>
       </div>
     </el-dialog>
@@ -274,7 +274,7 @@
           paddingTop += 240
 
         if (this.textareaVideoInfo.title || this.contactForm.video)
-          paddingTop += 110
+          paddingTop += 100
         style['padding-top'] = paddingTop + 'px'
         return style
       },
@@ -361,7 +361,6 @@
 
     .c-f-icon {
       float: left;
-      margin-right: 80px;
       margin-top: 5px;
       position: relative;
       cursor: pointer;
@@ -388,11 +387,11 @@
 
     .youtube-video-info {
       height: 80px;
-      margin-top: 12px;
       border: 1px solid #ccc;
       width: 318px;
       position: relative;
       text-align: left;
+      left: -4px;
     }
 
     .image-textarea-prev {

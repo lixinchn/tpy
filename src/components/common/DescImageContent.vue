@@ -70,7 +70,7 @@
     p {
       font-family: 'Arial MT Regular';
       font-size: 22px;
-      margin: 0 0 58px 0;
+      margin: 0 0 46px 0;
       text-align: left;
     }
   }

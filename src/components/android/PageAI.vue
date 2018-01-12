@@ -83,6 +83,8 @@
           margin: 38px auto 0 auto;
           width: 256px;
           height: 75px;
+          position: relative;
+          left: -46px;
           background: url(/static/img/android/google-play.png) no-repeat;
           &:hover {
             background-position: -256px 0;

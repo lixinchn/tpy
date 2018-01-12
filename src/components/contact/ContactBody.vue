@@ -1,14 +1,17 @@
 <template>
-  <div class="contact-wrapper" :style="{width: width}">
-    <div class="c-banner-wrapper">
-      <a v-for="(banner, index) in banners" :key="index" :href="banner.href"><img :src="'/static/img/contact/' + banner.img"></a>
+  <div>
+    <div class="split"></div>
+    <div class="contact-wrapper" :style="{width: width}">
+      <div class="c-banner-wrapper">
+        <a v-for="(banner, index) in banners" :key="index" :href="banner.href"><img :src="'/static/img/contact/' + banner.img"></a>
+      </div>
+      <div class="c-content-wrapper">
+        <p style="font-size: 24px; margin-bottom: 40px;">Join our community</p>
+        <p style="margin-bottom: 5px;">Is this the begining of a beautiful friendship? If you'd like to become a Typany partner,</p>
+        <p>explore what we can do together, let us know in the form below.</p>
+      </div>
+      <contact-form :width="width"></contact-form>
     </div>
-    <div class="c-content-wrapper">
-      <p style="font-size: 24px; margin-bottom: 40px;">Join our community</p>
-      <p style="margin-bottom: 5px;">Is this the begining of a beautiful friendship? If you'd like to become a Typany partner,</p>
-      <p>explore what we can do together, let us know in the form below.</p>
-    </div>
-    <contact-form :width="width"></contact-form>
   </div>
 </template>
 
@@ -44,8 +47,15 @@
 </script>
 
 <style lang="scss" scoped>
+  .split {
+    width: 100%;
+    height: 4px;
+    background: url(/static/img/blog/split.png) no-repeat;
+    background-size: 100% 100%;
+  }
+
   .contact-wrapper {
-    margin: 0 auto;
+    margin: 30px auto 0 auto;
     .c-banner-wrapper {
       text-align: left;
       &:first-child {
