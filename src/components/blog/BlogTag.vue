@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper" style="margin-top: 40px;">
     <div class="search">
-      <input type="text" v-model="searchKey" v-on:keyup.enter="onSearch(searchKey)">
+      <input type="text" v-model="searchKey" v-on:keyup.enter="onSearch(searchKey)" style="padding-left: 5px;">
       <img src="/static/img/blog/search.png" @click="onSearch(searchKey)">
     </div>
 
@@ -84,7 +84,7 @@
         right: 15px;
         width: 18px;
         height: 18px;
-        margin-top: 8px;
+        top: 13px;
         cursor: pointer;
       }
     }
