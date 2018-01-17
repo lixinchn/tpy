@@ -75,7 +75,7 @@
           margin: 0 0 42px 0;
           text-align: center;
           position: relative;
-          left: -48px;
+          left: -40px;
         }
       }
     }

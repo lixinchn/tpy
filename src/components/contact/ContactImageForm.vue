@@ -59,7 +59,11 @@
           return
         
         this.$emit('imageSubmit', {imageList: this.imageList, imageDataUrlList: this.imageDataUrlList})
-        this.$store.dispatch('CONTACT_CloseImageForm').then(() => {})
+        this.$store.dispatch('CONTACT_CloseImageForm').then(() => {
+          this.imageList = []
+          this.imageDataUrlList = []
+          this.uploadBtnShow = true
+        })
       },
 
       onClose() {

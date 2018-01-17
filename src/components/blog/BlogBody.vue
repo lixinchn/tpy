@@ -2,7 +2,7 @@
   <div class="b-b-wrapper">
     <div class="split"></div>
     <div class="content-wrapper" :style="{width: width}">
-      <blog-list style="width: 82%; float: left; min-height: 500px;"></blog-list>
+      <blog-list style="width: 82%; float: left;"></blog-list>
       <blog-tag style="width: 18%; float: left;"></blog-tag>
     </div>
     <div style="text-align: center; margin: 20px auto;" v-show="pending"><img src="/static/img/blog/loading.png" class="blog-loading"></div>
@@ -108,6 +108,7 @@
 
   .b-b-wrapper {
     width: 100%;
+    min-height: 600px;
     .split {
       width: 100%;
       height: 4px;
