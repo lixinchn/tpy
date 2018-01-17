@@ -68,7 +68,7 @@
     }
 
     p {
-      font-family: 'Arial MT Regular';
+      font-family: 'Arial MT Regular', Arial;
       font-size: 22px;
       margin: 0 0 46px 0;
       text-align: left;

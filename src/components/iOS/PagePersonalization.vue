@@ -66,7 +66,7 @@
         left: 600px;
         width: 500px;
         .title {
-          font-family: 'Arial MT Regular';
+          font-family: 'Arial MT Regular', Arial;
           font-size: 42px;
           color: #6b6b6b;
           margin: 0 0 42px 0;

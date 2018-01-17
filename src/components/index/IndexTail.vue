@@ -39,7 +39,7 @@ export default {
     top: -8px;
 
     .i-t-anchor {
-      font-family: 'Avenir Book';
+      font-family: Arial, "Avenir Book";
       font-size: 16px;
       color: #fff;
       text-decoration: none;

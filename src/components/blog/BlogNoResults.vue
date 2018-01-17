@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <p>Opps! But You May Also Like the content without finding the first article!</p>
+    <p>Opps! But you may also like the content without finding the first article!</p>
     <div class="split"></div>
   </div>
 </template>

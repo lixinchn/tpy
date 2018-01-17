@@ -142,6 +142,7 @@
           imagesLocation: [],
           video: '',
         }
+        this.$refs.comment.innerHTML = ''
       },
 
       onSubmit() {

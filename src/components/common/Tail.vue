@@ -6,7 +6,7 @@
       <div><a href="/contact" class="i-t-anchor" style="opacity: 0.45;">Contact</a></div>
       <div><a href="/service" class="i-t-anchor" style="opacity: 0.2;">Terms of Service</a></div>
       <div><a href="/policy" class="i-t-anchor" style="opacity: 0.2; margin: 0;">Privacy Policy</a></div>
-      <div><p class="i-t-anchor" style="opacity: 0.2; margin: 0;">©Copyright Typany Inc. 2018</p></div>
+      <div><p class="i-t-anchor" style="opacity: 0.2; margin: 0;">Copyright © 2018 TYPANY® All rights reserved.</p></div>
     </el-row>
   </div>
 </template>
@@ -48,7 +48,7 @@ export default {
 
 
     .i-t-anchor {
-      font-family: 'Avenir Book';
+      font-family: Arial, "Avenir Book";
       font-size: 16px;
       color: #fff;
       text-decoration: none;

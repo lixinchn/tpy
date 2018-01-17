@@ -58,7 +58,7 @@
 
       .i-c-title {
         font-size:  51px;
-        font-family: 'Avenir Black';
+        font-family: Arial, "Avenir Book";
         color: #fff;
         margin: 0px auto 26px auto;
       }
@@ -70,7 +70,7 @@
 
         .i-c-content {
           font-size: 20px;
-          font-family: 'Avenir Book';
+          font-family: Arial, "Avenir Book";
           color: #fff;
           margin: 0;
           display: inline-block;

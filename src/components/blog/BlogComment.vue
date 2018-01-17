@@ -106,7 +106,7 @@
     text-align: left;
     margin: 20px auto 30px auto;
     font-size: 16px;
-    font-family: "Avenir Book";
+    font-family: Arial, "Avenir Book";
 
     .b-c-title {
     }
