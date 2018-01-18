@@ -58,7 +58,8 @@
       position: relative;
 
       .exp-show {
-        height: 777px;
+        height: 584px;
+        width: 488px;
         display: inline-block;
         position: relative;
         left: 70px;
@@ -77,7 +78,7 @@
           margin: 0 0 42px 0;
           text-align: center;
           position: relative;
-          left: -37px;
+          left: -49px;
         }
       }
     }

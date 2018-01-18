@@ -55,8 +55,8 @@
       position: relative;
 
       .per-show {
-        width: 542px;
-        height: 799px;
+        width: 407px;
+        height: 600px;
         margin: 0px 105px 0px 45px;
         display: inline-block;
       }
@@ -73,7 +73,7 @@
           margin: 0 0 42px 0;
           text-align: center;
           position: relative;
-          left: 24px;
+          left: 12px;
         }
       }
     }

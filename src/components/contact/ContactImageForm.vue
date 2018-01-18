@@ -83,9 +83,9 @@
         const isLT2M = file.size / 1024 / 1024 < 2
 
         if (!isValidType)
-          this.$message.error('Only JPG and PNG image supported')
+          this.$message.error('Only JPG, PNG are allowed.')
         else if (!isLT2M)
-          this.$message.error('Image size must less than 2MB')
+          this.$message.error('How do I upload files bigger than 2MB? Sorry, you can\'t.')
 
         if (isValidType && isLT2M) {
           let reader = new FileReader()

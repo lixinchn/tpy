@@ -65,12 +65,13 @@
       vertical-align: top;
       float: left;
       margin-right: 23px;
+      height: 43px;
     }
 
     p {
       font-family: 'Arial MT Regular', Arial;
       font-size: 22px;
-      margin: 0 0 46px 0;
+      margin: 0 0 31px 0;
       text-align: left;
     }
   }

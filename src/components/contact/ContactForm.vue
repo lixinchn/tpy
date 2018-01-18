@@ -51,11 +51,11 @@
         </div>
       </div>
       <div style="width: 912px; overflow: auto; margin: 0 auto">
-        <div class="c-f-icon" v-popover:popimage>
+        <div class="c-f-icon c-f-image" v-popover:popimage>
           <img src="/static/img/contact/image-icon.png">
           <span>image</span>
         </div>
-        <div class="c-f-icon" v-popover:popvideo>
+        <div class="c-f-icon c-f-video" v-popover:popvideo>
           <div style="width: 100px; display: inline-block;" ><img src="/static/img/contact/video-icon.png"></div>
           <span style="position: relative; right: 35px;">video</span>
         </div>
@@ -369,6 +369,20 @@
       img {
         vertical-align: middle;
         cursor: pointer;
+      }
+    }
+
+    .c-f-image {
+      &:active::after {
+        content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=contact_img&action=click);
+        display: none;
+      }
+    }
+
+    .c-f-image {
+      &:active::after {
+        content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=contact_video&action=click);
+        display: none;
       }
     }
 

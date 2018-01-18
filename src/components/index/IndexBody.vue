@@ -1,5 +1,5 @@
 <template>
-    <slider animation="normal" :interval="50000" @changeSlide="onSlideChanged" ref="slider" style="min-height: 600px;">
+    <slider animation="normal" :interval="5000" @changeSlide="onSlideChanged" ref="slider" style="min-height: 600px;">
       <slider-item v-for="(slice, index) in sliceInfo" :key="index">
         <index-slider :img="slice.bgUrl" :title="slice.title" :content="slice.subTitle" style="width: 100%;"></index-slider>
       </slider-item>

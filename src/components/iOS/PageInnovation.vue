@@ -47,6 +47,7 @@
     width: 100%;
     background: url(http://d2ezgnxmilyqe4.cloudfront.net/media/index/ios-bg1.png) no-repeat;
     position: relative;
+    overflow: hidden;
 
     .effi-c-wrapper {
       z-index: 10;
@@ -56,28 +57,27 @@
       position: relative;
 
       .effi-show {
-        width: 615px;
-        height: 881px;
+        width: 462px;
+        height: 661px;
         margin: 0 30px 0 0;
         display: inline-block;
         position: relative;
         left: 50px;
-        top: 50px;
       }
 
       .effi-desc {
         position: absolute;
-        top: 131px;
+        top: 81px;
         left: 20px;
         width: 500px;
         .title {
           font-family: 'Arial MT Regular', Arial;
           font-size: 42px;
           color: #fff;
-          margin: 0 0 42px 0;
+          margin: 0 0 28px 0;
           text-align: center;
           position: relative;
-          left: -44px;
+          left: -58px;
         }
 
         .effi-btn {
@@ -94,12 +94,16 @@
           &:active {
             background-position: -514px 0;
           }
+          &:active::after {
+            content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=ios_a_top&action=click);
+            display: none;
+          }
         }
       }
     }
     .bg-component {
       position: absolute;
-      top: 70px;
+      top: -90px;
       left: -145px;
       width: 100%;
       height: 100%;

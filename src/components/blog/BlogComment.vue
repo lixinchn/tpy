@@ -13,7 +13,7 @@
       <p class="b-c-label">Facebook</p>
       <input type="text" style="" class="b-c-input" v-model="commentForm.facebook">
       <div style="width: 100%; overflow: auto;">
-        <div class="b-c-btn" @click="onSubmit"></div>
+        <div v-bind:class="[commentForm.name && commentForm.email ? 'b-c-btn-normal' : 'b-c-btn-disabled', 'b-c-btn']" @click="onSubmit">Post Comment</div>
       </div>
     </form>
   </div>
@@ -146,15 +146,29 @@
       width: 133px;
       height: 40px;
       cursor: pointer;
+      line-height: 40px;
+      font-family: 'Myriad Pro', Myriad, Helvetica;
+      -webkit-user-select: none;
       margin-top: 30px;
+      cursor: pointer;
       float: right;
-      background: url(/static/img/blog/btn.png) no-repeat;
+      border-radius: 4px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .b-c-btn-normal {
+      background: #1aa0fb;
       &:hover {
-        background-position: -133px 0;
+        background: #37b6fc;
       }
       &:active {
-        background-position: -266px 0;
+        background: #1589dc;
       }
+    }
+
+    .b-c-btn-disabled {
+      background: #dbdbdb;
     }
   }
 </style>

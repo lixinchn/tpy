@@ -58,15 +58,15 @@
       position: relative;
 
       .ai-show {
-        width: 405px;
-        height: 808px;
+        width: 320px;
+        height: 607px;
         margin: 0px 105px 0px 45px;
         display: inline-block;
       }
 
       .ai-desc {
         position: absolute;
-        top: 231px;
+        top: 124px;
         left: 555px;
         width: 515px;
         .title {
@@ -76,7 +76,7 @@
           margin: 0 0 42px 0;
           text-align: center;
           position: relative;
-          left: -67px;
+          left: -79px;
         }
         .ai-btn {
           display: block;
@@ -84,13 +84,17 @@
           width: 256px;
           height: 75px;
           position: relative;
-          left: -46px;
+          left: -60px;
           background: url(/static/img/android/google-play.png) no-repeat;
           &:hover {
             background-position: -256px 0;
           }
           &:active {
             background-position: -512px 0;
+          }
+          &:active::after {
+            content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=android_g_top&action=click);
+            display: none;
           }
         }
       }

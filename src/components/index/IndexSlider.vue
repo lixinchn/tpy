@@ -94,6 +94,11 @@
         &:active {
           background-position: -340px 0;
         }
+
+        &:active::after {
+          content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=index_g&action=click);
+          display: none;
+        }
       }
 
       .i-c-a-store {
@@ -106,6 +111,11 @@
         &:active {
           background-position: -340px 0;
         }
+
+        &:active::after {
+          content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=index_a&action=click);
+          display: none;
+        }
       }
 
       .i-c-d-fb {
@@ -115,6 +125,11 @@
         vertical-align: middle;
         margin-left: 18px;
         display: inline-block;
+
+        &:active::after {
+          content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=index_fb&action=click);
+          display: none;
+        }
       }
     }
   }

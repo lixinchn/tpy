@@ -36,11 +36,15 @@ export default {
     margin: auto;
 
     &:hover {
-      background-position: -390px 0;
+      background-position: -389px 0;
     }
 
     &:active {
-      background-position: -780px 0;
+      background-position: -778px 0;
+    }
+    &:active::after {
+      content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=android_g_bottom&action=click);
+      display: none;
     }
   }
 </style>

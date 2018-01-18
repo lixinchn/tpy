@@ -25,7 +25,7 @@
       },
       pageHeight: {
         type: String,
-        default: '880px',
+        default: '660px',
       }
     },
     data () {

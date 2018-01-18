@@ -42,5 +42,10 @@ export default {
     &:active {
       background-position: -780px 0;
     }
+
+    &:active::after {
+      content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=ios_a_bottom&action=click);
+      display: none;
+    }
   }
 </style>

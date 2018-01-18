@@ -25,19 +25,19 @@
       },
       pageHeight: {
         type: String,
-        default: '880px',
+        default: '660px',
       },
       pageHeightInnovation: {
         type: String,
-        default: '1027px',
+        default: '659px',
       },
       pageHeightPersonalization: {
         type: String,
-        default: '878px',
+        default: '662px',
       },
       pageHeightExp: {
         type: String,
-        default: '882px',
+        default: '661px',
       },
     },
     data () {

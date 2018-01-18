@@ -55,8 +55,8 @@
       position: relative;
 
       .effi-show {
-        width: 536px;
-        height: 787px;
+        width: 403px;
+        height: 591px;
         margin: 54px 130px 0 0;
         display: inline-block;
         position: relative;
@@ -75,7 +75,7 @@
           margin: 0 0 42px 0;
           text-align: center;
           position: relative;
-          left: -40px;
+          left: -60px;
         }
       }
     }
