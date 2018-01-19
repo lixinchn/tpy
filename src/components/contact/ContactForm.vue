@@ -148,6 +148,8 @@
       onSubmit() {
         if (!this.contactForm.name || !this.contactForm.email)
           return
+        if (!this.emailCheck())
+          return
 
         const data = {
           name: this.contactForm.name,
@@ -249,7 +251,11 @@
           return
         }
         this.popVideoShow = true
-      }
+      },
+      emailCheck() {
+        const canSubmit = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(this.contactForm.email)
+        return canSubmit
+      },
     },
 
     created() {
@@ -280,7 +286,7 @@
         return style
       },
       autoStyleSubmit() {
-        if (!this.contactForm.name || !this.contactForm.email)
+        if (!this.contactForm.name || !this.contactForm.email || !this.emailCheck())
           return {background: '#dbdbdb'}
         return {}
       },

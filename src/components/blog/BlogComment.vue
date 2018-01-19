@@ -13,7 +13,7 @@
       <p class="b-c-label">Facebook</p>
       <input type="text" style="" class="b-c-input" v-model="commentForm.facebook">
       <div style="width: 100%; overflow: auto;">
-        <div v-bind:class="[commentForm.name && commentForm.email ? 'b-c-btn-normal' : 'b-c-btn-disabled', 'b-c-btn']" @click="onSubmit">Post Comment</div>
+        <div v-bind:class="autoClass" @click="onSubmit">Post Comment</div>
       </div>
     </form>
   </div>
@@ -103,6 +103,9 @@
     },
 
     computed: {
+      autoClass() {
+        return [this.commentForm.name && this.commentForm.email && this.emailCheck() ? 'b-c-btn-normal' : 'b-c-btn-disabled', 'b-c-btn']
+      },
     }
   }
 </script>
