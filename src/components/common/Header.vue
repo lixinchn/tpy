@@ -46,7 +46,7 @@ export default {
     .h-logo-wrapper {
       display: inline-block;
       &:active::after {
-        content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=head_logo&action=click);
+        content: url(http://typany.com/api/pingback.php?loc=head_logo&action=click);
         display: none;
       }
     }
@@ -74,13 +74,13 @@ export default {
 
     .h-link-android {
       &:active::after {
-        content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=head_android&action=click);
+        content: url(http://typany.com/api/pingback.php?loc=head_android&action=click);
         display: none;
       }
     }
     .h-link-ios {
       &:active::after {
-        content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=head_ios&action=click);
+        content: url(http://typany.com/api/pingback.php?loc=head_ios&action=click);
         display: none;
       }
     }

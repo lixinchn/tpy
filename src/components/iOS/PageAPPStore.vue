@@ -41,7 +41,7 @@ export default {
     }
 
     &:active::after {
-      content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=ios_a_bottom&action=click);
+      content: url(http://typany.com/api/pingback.php?loc=ios_a_bottom&action=click);
       display: none;
     }
   }

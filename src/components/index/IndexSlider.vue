@@ -96,7 +96,7 @@
         }
 
         &:active::after {
-          content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=index_g&action=click);
+          content: url(http://typany.com/api/pingback.php?loc=index_g&action=click);
           display: none;
         }
       }
@@ -113,7 +113,7 @@
         }
 
         &:active::after {
-          content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=index_a&action=click);
+          content: url(http://typany.com/api/pingback.php?loc=index_a&action=click);
           display: none;
         }
       }
@@ -127,7 +127,7 @@
         display: inline-block;
 
         &:active::after {
-          content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=index_fb&action=click);
+          content: url(http://typany.com/api/pingback.php?loc=index_fb&action=click);
           display: none;
         }
       }

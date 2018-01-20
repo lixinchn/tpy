@@ -83,35 +83,35 @@ export default {
 
   .i-about {
     &:active::after {
-      content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=tail_about&action=click);
+      content: url(http://typany.com/api/pingback.php?loc=tail_about&action=click);
       display: none;
     }
   }
 
   .i-blog {
     &:active::after {
-      content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=tail_blog&action=click);
+      content: url(http://typany.com/api/pingback.php?loc=tail_blog&action=click);
       display: none;
     }
   }
 
   .i-contact {
     &:active::after {
-      content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=tail_contact&action=click);
+      content: url(http://typany.com/api/pingback.php?loc=tail_contact&action=click);
       display: none;
     }
   }
 
   .i-service {
     &:active::after {
-      content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=tail_service&action=click);
+      content: url(http://typany.com/api/pingback.php?loc=tail_service&action=click);
       display: none;
     }
   }
 
   .i-policy {
     &:active::after {
-      content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=tail_policy&action=click);
+      content: url(http://typany.com/api/pingback.php?loc=tail_policy&action=click);
       display: none;
     }
   }

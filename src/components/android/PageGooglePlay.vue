@@ -40,7 +40,7 @@ export default {
       background-position: -778px 0;
     }
     &:active::after {
-      content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=android_g_bottom&action=click);
+      content: url(http://typany.com/api/pingback.php?loc=android_g_bottom&action=click);
       display: none;
     }
   }

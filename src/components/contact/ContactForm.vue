@@ -154,6 +154,7 @@
         const data = {
           name: this.contactForm.name,
           email: this.contactForm.email,
+          occ: this.contactForm.occupation,
           res: this.$refs.comment.innerHTML,
           pics: paramArrayToString(this.contactForm.imagesLocation),
           video: this.contactForm.video,
@@ -380,14 +381,14 @@
 
     .c-f-image {
       &:active::after {
-        content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=contact_img&action=click);
+        content: url(http://typany.com/api/pingback.php?loc=contact_img&action=click);
         display: none;
       }
     }
 
     .c-f-image {
       &:active::after {
-        content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=contact_video&action=click);
+        content: url(http://typany.com/api/pingback.php?loc=contact_video&action=click);
         display: none;
       }
     }

@@ -93,7 +93,7 @@
             background-position: -512px 0;
           }
           &:active::after {
-            content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=android_g_top&action=click);
+            content: url(http://typany.com/api/pingback.php?loc=android_g_top&action=click);
             display: none;
           }
         }
