@@ -48,6 +48,7 @@
   .ai-wrapper {
     width: 100%;
     background: url(http://d2ezgnxmilyqe4.cloudfront.net/media/index/android-bg1.png) no-repeat;
+    background-size: 100%;
     position: relative;
 
     .ai-c-wrapper {

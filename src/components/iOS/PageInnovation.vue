@@ -46,6 +46,7 @@
   .effi-wrapper {
     width: 100%;
     background: url(http://d2ezgnxmilyqe4.cloudfront.net/media/index/ios-bg1.png) no-repeat;
+    background-size: 100%;
     position: relative;
     overflow: hidden;
 
