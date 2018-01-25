@@ -25,7 +25,7 @@ export default {
 
 <style lang="scss" scoped>
   .bottom-btn {
-    width: 390px;
+    width: 388px;
     height: 127px;
     background: url(/static/img/ios/bottom-btn.png) no-repeat;
     display: block;
