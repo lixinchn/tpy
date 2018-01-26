@@ -29,8 +29,8 @@
     },
     data () {
       return {
-        banners: [{img: 'contact-banner-1.png', href: 'mailto:typany.overseas@gmail.com'},
-                  {img: 'contact-banner-2.png', href: 'mailto:typany2016@gmail.com'},
+        banners: [{img: 'contact-banner-1.png', href: 'mailto:typany_press@sogou-inc.com'},
+                  {img: 'contact-banner-2.png', href: 'mailto:typany_keyboard@sogou-inc.com'},
                   {img: 'contact-banner-3.png', href: 'https://www.surveymonkey.com/r/B7GNSFZ'}]
       }
     },
