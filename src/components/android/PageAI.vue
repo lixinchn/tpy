@@ -29,7 +29,7 @@
         descList: ['Powerful Translator & Smart Voice Input',
                    'Intelligent AutoCorrect and Prediction',
                    'Word/Slang/Phrase Learning that actually works'],
-        typingGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/ai-typing-android.gif?t=' + Date.now(),
+        typingGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/ai-typing-android.gif',
       }
     },
 

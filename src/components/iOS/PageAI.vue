@@ -28,7 +28,7 @@
         descList: ['Real-Time Translation Built in',
                    'Intelligent AutoCorrect and Prediction',
                    'Intelligent Word-Learning'],
-        typingGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/ai-typing-new-ios.gif?t=' + Date.now(),
+        typingGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/ai-typing-new-ios.gif',
       }
     },
 

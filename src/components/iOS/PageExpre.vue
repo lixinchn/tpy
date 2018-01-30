@@ -29,7 +29,7 @@
         descList: [{desc: 'Discover the world of pop culture - memes, TV, Movies, Music and more', left: '0px'},
                    {desc: 'Create Your Own Emoji with Build-in Emoji Maker', left: '-8px'}],
         fontColor: '#6b6b6b',
-        expGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/expression-ios.gif?t=' + Date.now(),
+        expGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/expression-ios.gif',
       }
     },
 

@@ -3,7 +3,9 @@
     <div class="split"></div>
     <div class="contact-wrapper" :style="{width: width}">
       <div class="c-banner-wrapper">
-        <a v-for="(banner, index) in banners" :key="index" :href="banner.href"><img :src="'/static/img/contact/' + banner.img"></a>
+        <a v-for="(banner, index) in banners" :key="index" :href="banner.href" :class="banner.class">
+          <img :src="'/static/img/contact/' + banner.img" style="width: 205px;">
+        </a>
       </div>
       <div class="c-content-wrapper">
         <p style="font-size: 24px; margin-bottom: 40px;">Join our community</p>
@@ -29,9 +31,10 @@
     },
     data () {
       return {
-        banners: [{img: 'contact-banner-1.png', href: 'mailto:typany_press@sogou-inc.com'},
-                  {img: 'contact-banner-2.png', href: 'mailto:typany_keyboard@sogou-inc.com'},
-                  {img: 'contact-banner-3.png', href: 'https://www.surveymonkey.com/r/B7GNSFZ'}]
+        banners: [{img: 'contact-banner-1.png', href: 'mailto:typany_bd@sogou-inc.com', class: 'c-b-b'},
+                  {img: 'contact-banner-2.png', href: 'mailto:typany_press@sogou-inc.com', class: 'c-b-p'},
+                  {img: 'contact-banner-3.png', href: 'mailto:typany_keyboard@sogou-inc.com', class: 'c-h-s'},
+                  {img: 'contact-banner-4.png', href: 'https://www.surveymonkey.com/r/B7GNSFZ', class: 'c-c'}]
       }
     },
 
@@ -59,7 +62,7 @@
     .c-banner-wrapper {
       text-align: left;
       &:first-child {
-        margin-left: 60px;
+        margin-left: 55px;
       }
       img {
         margin-left: 30px;
@@ -74,6 +77,34 @@
         margin: 0;
         font-size: 18px;
       }
+    }
+  }
+
+  .c-b-b {
+    &:active::after {
+      content: url(http://typany.com/api/pingback.php?loc=contact_b_b&action=click);
+      display: none;
+    }
+  }
+
+  .c-b-p {
+    &:active::after {
+      content: url(http://typany.com/api/pingback.php?loc=contact_b_p&action=click);
+      display: none;
+    }
+  }
+
+  .c-h-s {
+    &:active::after {
+      content: url(http://typany.com/api/pingback.php?loc=contact_h_s&action=click);
+      display: none;
+    }
+  }
+
+  .c-c {
+    &:active::after {
+      content: url(http://typany.com/api/pingback.php?loc=contact_c_c&action=click);
+      display: none;
     }
   }
 </style>
