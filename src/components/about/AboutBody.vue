@@ -2,14 +2,23 @@
   <div class="about-wrapper">
     <div style="margin: 0 auto;" :style="{width: width}">
       <div class="content">
-        <p class="title">ABOUT TYPANY</p>
-        <p style="margin-bottom: 20px;">What would you do if other people suddenly couldn't understand you?</p>
-        <p style="margin-bottom: 20px;">What would you do if you couldn't understand other people</p>
-        <p style="margin-bottom: 20px;">Indeed the people are one and they all have one language, and this is what they begin to do:</p>
-        <p style="margin-bottom: 40px; font-size: 20px;">INSTALL TYPANY TO REMOVE LANGUAGE BARRIERS.</p>
-        <p style="margin-bottom: 40px;">Typany is the developer to make your device better than ever with a customized keyboard that suits your style</p>
-        <p style="margin-bottom: 40px;">Typany Keyboard designed for efficient typing experience and easier communication for each user. Smart auto-correction, accurate word prediction, countless DIY combination, intelligent calculation during typing...</p>
-        <p style="margin-bottom: 20px;">Typany Keyboard creates style community to define your own character to more interpersonal communication</p>
+        <p class="title">Who is Typany Keyboard?</p>
+        <p style="margin-bottom: 20px;">Typany Keyboard is one of the fastest-growing apps in its category on Android & iOS, responding to growing consumer demand for a better way to quickly express thoughts and feelings visually -- and typically empowering people to speak the language across mobile apps and messaging services is an important part of delivering on consumer expectation.</p>
+        <p style="margin-bottom: 20px;">Typany Keyboard supports more than 100 languages, revolutionized the typing experience by its lightning-fast personalized prediction technology and comprehensive customization features using AI (something that they put a lot of emphasis on). </p>
+        <p style="margin-bottom: 20px;">Besides, it’s powered by Sogou, mostly known in China for its language input method, the input method everyone uses.</p>
+        <p class="title">Typany’s Mission</p>
+        <p style="margin-bottom: 20px;">Typany Keyboard’s mission is to team with the users to bring the the smartest, most diverse, time-saving solution to millions more people worldwide.</p>
+        <p class="title">Why Typany?</p>
+        <p style="margin-bottom: 20px;">Typany Keyboard offers benefits such as enhanced predictive text and autocorrect, better personalisation and customizability, the ability to search anything right from the keyboard, emoji suggestion shortcuts, and more.</p>
+        <p style="margin-bottom: 20px;">Always struggling with the keyboard of your phone? Check out Typany Keyboard to <span style="font-weight: bold">get you typing faster.</span></p>
+
+        <p class="title" style="text-align: center; font-size: 30px;">The Press</p>
+        <p style="">Better aesthetics</p>
+        <p style="">"And from China comes Typany Keyboard for Android and iOS—it feels sort of like the ultimate in bright and varied keyboard themes, if your eyes can take it."</p>
+        <p style="margin-bottom: 20px; font-weight: bold;">GIZMODO</p>
+        <br>
+        <p style="">"It doesn't have a ton of features, but it does have a ton of flash. It boasts tons of themes, stickers, emoji, and more. Perhaps the best part that it's all entirely free with no in-app purchases."</p>
+        <p style="margin-bottom: 20px; font-weight: bold;">Android Authority</p>
       </div>
     </div>
     <div class="banner">
@@ -65,8 +74,9 @@
       margin: 0 10px 0 80px;
       width: 750px;
       .title {
-        margin: 0 0 58px 0;
+        margin: 0 0 18px 0;
         font-size: 24px;
+        font-weight: bold;
       }
     }
 

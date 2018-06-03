@@ -2,7 +2,7 @@
   <div class="wrapper">
     <img class="gallary" :src="blogInfo.bannerUrl" :style="{width: width}" v-if="blogInfo.bannerUrl">
     <div class="content-wrapper" :style="{width: width}">
-      <div style="width: 82%; float: left; min-height: 500px;">
+      <div style="width: 82%; float: left; min-height: 500px;" class="blog-content-wrapper">
         <div v-html="blogInfo.content" class="blog-content"></div>
       </div>
       <blog-tag style="width: 18%; float: left;"></blog-tag>
@@ -74,6 +74,9 @@
         overflow: hidden;
         margin: 0 128px 0 70px;
       }
+    }
+    .blog-content-wrapper {
+      text-align: left;
     }
   }
 </style>
