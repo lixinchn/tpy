@@ -27,8 +27,8 @@
       return {
         iconList: [{icon: '/static/img/android/exp-icon1.png', iconLeft: '11px'},
                    {icon: '/static/img/android/exp-icon2.png', iconLeft: '0px'}],
-        descList: [{desc: 'Discover the world of pop culture - memes, TV, Movies, Music and more', left: '15px'},
-                   {desc: 'Create Your Own Emoji with Build-in Emoji Maker', left: '-6px'}],
+        descList: [{desc: 'Discover the World of Pop Culture - Memes, TV, Movies, Music and More', left: '15px'},
+                   {desc: 'Create Your Own Emoji with Built-in Emoji Maker', left: '-6px'}],
         fontColor: '#6b6b6b',
         expGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/expression-new-android.gif',
       }

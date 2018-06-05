@@ -24,8 +24,8 @@
     data () {
       return {
         iconList: ['/static/img/ios/per-icon1.png', '/static/img/ios/per-icon2.png'],
-        descList: ['DIY Your Own Keyboard with the Favorite Photo, Wallpaper',
-                   'A Variety of Fine Collected Themes, Be Clarity and Stylish'],
+        descList: ['Build Your Own Keyboard with Your Favorite Photos and Wallpapers',
+                   'A Variety of Stylish and Clear Themes'],
         fontColor: '#6b6b6b',
       }
     },

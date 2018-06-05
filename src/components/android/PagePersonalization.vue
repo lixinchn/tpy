@@ -24,7 +24,7 @@
     data () {
       return {
         iconList: ['/static/img/android/per-icon1.png', '/static/img/android/per-icon2.png'],
-        descList: ['DIY Your Own Keyboard with the Favorite Photo, Wallpaper',
+        descList: ['Build Your Own Keyboard with Your Favorite Photos and Wallpapers',
                    'Thousands of Colorful Themes to be Chose'],
         fontColor: '#6b6b6b',
       }

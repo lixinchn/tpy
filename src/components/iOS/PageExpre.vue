@@ -26,8 +26,8 @@
     data () {
       return {
         iconList: ['/static/img/ios/exp-icon1.png', '/static/img/ios/exp-icon2.png'],
-        descList: [{desc: 'Discover the world of pop culture - memes, TV, Movies, Music and more', left: '0px'},
-                   {desc: 'Create Your Own Emoji with Build-in Emoji Maker', left: '-8px'}],
+        descList: [{desc: 'Discover the World of Pop Culture - Memes, TV, Movies, Music and More', left: '0px'},
+                   {desc: 'Create Your Own Emoji with Built-in Emoji Maker', left: '-8px'}],
         fontColor: '#6b6b6b',
         expGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/expression-ios.gif',
       }

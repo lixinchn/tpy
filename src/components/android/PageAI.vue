@@ -27,7 +27,7 @@
       return {
         iconList: ['/static/img/android/ai-icon1.png', '/static/img/android/ai-icon2.png', '/static/img/android/ai-icon3.png'],
         descList: ['Powerful Translator & Smart Voice Input',
-                   'Intelligent AutoCorrect and Prediction',
+                   'Intelligent Autocorrect and Word Prediction',
                    'Word/Slang/Phrase Learning that actually works'],
         typingGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/ai-typing-android.gif',
       }
